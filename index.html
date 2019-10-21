@@ -259,6 +259,736 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/LeetCode  #35/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junthy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junthy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/21/LeetCode  #35/" itemprop="url">LeetCode</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00Z">
+                2019-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="LeetCode-35-搜索插入位置"><a href="#LeetCode-35-搜索插入位置" class="headerlink" title="LeetCode  #35 搜索插入位置"></a>LeetCode  #35 搜索插入位置</h1><blockquote>
+<p>题目描述：给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>
+<p>你可以假设数组中无重复元素。</p>
+<p>示例 1:</p>
+<p>输入: [1,3,5,6], 5<br>输出: 2<br>示例 2:</p>
+<p>输入: [1,3,5,6], 2<br>输出: 1<br>示例 3:</p>
+<p>输入: [1,3,5,6], 7<br>输出: 4<br>示例 4:</p>
+<p>输入: [1,3,5,6], 0<br>输出: 0</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/search-insert-position" target="_blank" rel="noopener">https://leetcode-cn.com/problems/search-insert-position</a></p>
+</blockquote>
+<h4 id="初始代码："><a href="#初始代码：" class="headerlink" title="初始代码："></a>初始代码：</h4><p>思路：</p>
+<p>第一种情况：当给定数组中包含的有该数字时，此时程序应该返回该数字在数组中的下标（也即是在数组中寻找target第一次出现的位置）；</p>
+<p>第二种情况：当给定的数组中不包含该数字时，此时程序应该返回数组中从左到右第一个大于targer的元素的所在位置作为target的插入位置</p>
+<p>特殊情况：数组中没有元素或者所有元素都小于target</p>
+<p><strong>因此我们使用二分模板中的第一种模板，寻找数组中第一个大于或等于target的元素所在下标</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> l=<span class="number">0</span>,r=nums.length-<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">if</span>(r==-<span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">while</span>(l&lt;r)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">int</span> mid = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">           <span class="keyword">if</span>(nums[mid]&gt;=target) r=mid;</span><br><span class="line">           <span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> nums[r]&gt;=target?r:r+<span class="number">1</span>; <span class="comment">//判断一下target是否是数组最大的数字</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>这里对于特殊情况的处理是放在最后，可以在二分之前进行判断，避免不必要的二分步骤。</p>
+<h4 id="针对返回值的优化"><a href="#针对返回值的优化" class="headerlink" title="针对返回值的优化"></a>针对返回值的优化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len =nums.length;</span><br><span class="line">        <span class="keyword">if</span>(len==<span class="number">0</span>||nums[len-<span class="number">1</span>]&lt;target) <span class="keyword">return</span> len;</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">0</span>,r=len-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]&gt;=target) r=mid;</span><br><span class="line">            <span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/二分查找算法模板/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junthy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junthy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/21/二分查找算法模板/" itemprop="url">二分查找算法模板</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00Z">
+                2019-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="二分查找算法模板"><a href="#二分查找算法模板" class="headerlink" title="二分查找算法模板"></a>二分查找算法模板</h1><blockquote>
+<p>95%的二分查找问题都可以通过两段性性质来解决</p>
+</blockquote>
+<p><strong>两段性性质指的是：能够将问题所给的区间通过判断分成两段，假设该判断函数为check，使得两段区域中一段满足check判断，另一段不满足。</strong></p>
+<p><img src="/images/LeetCode/二分查找.jpg" alt="二分查找两段性"></p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
+<li>采用上述模板时，while中的循环条件均为 while(L&lt;R) ，最终退出循环后，模板的代码可以保证L=M，而不会出现L&gt;M的情况；因此最终返回L/M中任意一个即可</li>
+<li>当使用模板一解题时，M应为 (L+R)/2的向下取整结果，即M=(L+M)/2</li>
+<li>当使用模板二解题时，M应为 (L+R)/2的向上取整结果，即M=(L+M+1)/2 。 否则当 L=target -1， R = target 时会进入死循环</li>
+</ol>
+<h2 id="二分查找问题解决流程"><a href="#二分查找问题解决流程" class="headerlink" title="二分查找问题解决流程"></a>二分查找问题解决流程</h2><ol>
+<li>依照题意找到划分边界的条件，进行边界划分，并确定target的位置所在</li>
+<li>依照边界条件设计check函数</li>
+<li>编写二分代码框架</li>
+<li>依照check判断进行边界值的更新</li>
+<li>若更新边界值L=M，R=M-1 说明属于第二模板，此时更改计算M的部分为 M=(L+R+1)/2</li>
+</ol>
+<blockquote>
+<p>本文参考： <a href="https://www.acwing.com/blog/content/31/" target="_blank" rel="noopener">https://www.acwing.com/blog/content/31/</a></p>
+<p>感谢yxc大佬的精彩讲解</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/LeetCode  #69/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junthy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junthy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/21/LeetCode  #69/" itemprop="url">LeetCode</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00Z">
+                2019-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="LeetCode-69-x的平方和"><a href="#LeetCode-69-x的平方和" class="headerlink" title="LeetCode  #69 x的平方和"></a>LeetCode  #69 x的平方和</h1><blockquote>
+<p>题目描述：实现 int sqrt(int x) 函数。</p>
+<p>计算并返回 x 的平方根，其中 x 是非负整数。</p>
+<p>由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。</p>
+<p>示例 1:</p>
+<p>输入: 4<br>输出: 2<br>示例 2:</p>
+<p>输入: 8<br>输出: 2<br>说明: 8 的平方根是 2.82842…,<br>     由于返回类型是整数，小数部分将被舍去。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/sqrtx" target="_blank" rel="noopener">https://leetcode-cn.com/problems/sqrtx</a></p>
+</blockquote>
+<h4 id="初始解法（暴力遍历）："><a href="#初始解法（暴力遍历）：" class="headerlink" title="初始解法（暴力遍历）："></a>初始解法（暴力遍历）：</h4><p>思路：因为从4开始，x的平方根要小于等于 x/2, 所以在暴力遍历的时候也不需要从1-x都遍历一遍，只需要遍历到x/2即可。</p>
+<blockquote>
+<p>时间复杂度：O(N)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">         <span class="keyword">for</span>(<span class="keyword">long</span> i=<span class="number">2</span>;i&lt;=(x/<span class="number">2</span>)+<span class="number">1</span>;i++)</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="keyword">long</span> res =i*i;</span><br><span class="line">             <span class="keyword">if</span>(res&lt;x) <span class="keyword">continue</span>;</span><br><span class="line">             <span class="keyword">if</span>(res&gt;x) <span class="keyword">return</span> (<span class="keyword">int</span>) i-<span class="number">1</span>;</span><br><span class="line">             <span class="keyword">return</span> (<span class="keyword">int</span>) i;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">//说明1&lt;=x&lt;=3,则返回1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="二分解法（初始）："><a href="#二分解法（初始）：" class="headerlink" title="二分解法（初始）："></a>二分解法（初始）：</h4><p>思路：利用二分思想，初始化l=0,r=x。在不断二分迭代的过程通过m=(l+r)/2计算中间值m，依据m^2与x值的比较更新下标l和r。</p>
+<blockquote>
+<p>时间复杂度：O(N)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">0</span>,h=x;</span><br><span class="line">        <span class="comment">//划分区间，正确结果在红色区间右边界点</span></span><br><span class="line">        <span class="keyword">while</span>(l&lt;=h)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> m = (l+h)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">long</span> res = (<span class="keyword">long</span>)m*m; <span class="comment">//设置为long类型防止int溢出</span></span><br><span class="line">            <span class="keyword">if</span>(res&lt;x) l=m;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (res &gt; x) h = m-<span class="number">1</span>; <span class="comment">//说明此时m点在绿色区间内，更新h=m-1</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> m;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (h*h)&lt;=x?h:l; <span class="comment">//由于此时l和h都有可能是正确结果，所以需要验证一下</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>while中的条件为 l&lt;=h;  这可能会带来一些问题，比如当输入的x为8时, l和r的更新过程为：l=0, r=8 -&gt;  l=0, r=3 -&gt; l=1, r=3 -&gt; l=2, r=3 -&gt; l=2, r=3 …… 最终会陷入到死循环中，因此一开始使用测试用例没有问题，但提交时显示运行超时。</p>
+<p>最后更改如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">0</span>,h=x;</span><br><span class="line">        <span class="comment">//划分区间，正确结果在红色区间右边界点</span></span><br><span class="line">        <span class="keyword">while</span>(h-l&gt;<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> m = (l+h)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">long</span> res = (<span class="keyword">long</span>)m*m; <span class="comment">//设置为long类型防止int溢出</span></span><br><span class="line">            <span class="keyword">if</span>(res&lt;x) l=m;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (res &gt; x) h = m-<span class="number">1</span>; <span class="comment">//说明此时m点在绿色区间内，更新h=m-1</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> m;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (h*h)&lt;=x?h:l; <span class="comment">//由于此时l和h都有可能是正确结果，所以需要验证一下</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于循环中的条件改为h-l&gt;1,因此退出循环后需要判断一下正确结果是l还是h，因为这两个都有可能。比如当输入的x是6时，l=2,h=3, l是正确结果。当输入的x为8时，l=2，h=3，此时h是正确结果。</p>
+<h4 id="二分解法（模板）"><a href="#二分解法（模板）" class="headerlink" title="二分解法（模板）"></a>二分解法（模板）</h4><p>思路：首先使用二段性将区间[0,x]分为两段，左边的元素值的平方&lt;=x，右边元素值的平方&gt;x。在计算 m值时，采用向上取整的方式，m=(l+r+1)/2, 这样当l=r-1的时候，m=(2l)/2=l。最终退出循环时，l=r即为最后的结果。</p>
+<blockquote>
+<p>时间复杂度：O(N) </p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l=<span class="number">0</span>,r=x;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;r)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (<span class="keyword">int</span>) ((l+(<span class="keyword">long</span>)r+<span class="number">1</span>) &gt;&gt;<span class="number">1</span>);<span class="comment">//移位运算比较快</span></span><br><span class="line">        <span class="keyword">if</span>(mid&lt;=x/mid) <span class="comment">//防止mid*mid 溢出</span></span><br><span class="line">        l=mid;</span><br><span class="line">        <span class="keyword">else</span> r=mid-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>最后直接返回l而无需另加判断，所以总体上要比之前的二分代码简洁</strong></p>
+<p>在这里有几点比较好的代码优化技巧：</p>
+<ul>
+<li>采用移位运算来进行除2运算，这样可以提高运算速度</li>
+<li>为了防止mid*mid溢出，这里将 mid*mid&lt;=x 改成 mid &lt;= x/mid </li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/今天的两场面试-浦发和美团/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junthy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junthy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/29/今天的两场面试-浦发和美团/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T15:18:31Z">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="今天的两场面试-浦发和美团"><a href="#今天的两场面试-浦发和美团" class="headerlink" title="今天的两场面试-浦发和美团"></a>今天的两场面试-浦发和美团</h1><blockquote>
+<p>浦发：早上八点半  第一场：上机笔试  ，第二场 ： 面试</p>
+<p>美团：下午五点 视频面试</p>
+</blockquote>
+<h2 id="编码能力"><a href="#编码能力" class="headerlink" title="编码能力"></a>编码能力</h2><p>通过这几天的面试，觉得自己的编程能力真的有待提高。也许真的如左神所说，应该多花时间在刷题和总结上，这样面试时写代码才会更有底气。</p>
+<p>最近一直在思考自己该如何快速提升自己的编码能力，但想来想去，好像没有什么可以快速提升编码能力的捷径。只能靠自己不断刷题，不断总结，才能慢慢地找到那种感觉。</p>
+<h2 id="美团面试分享："><a href="#美团面试分享：" class="headerlink" title="美团面试分享："></a>美团面试分享：</h2><p>面试官很和蔼，一开始先让我自我介绍，然后问我是使用Java是吗？我说是的，然后说问一些Java基础吧</p>
+<p>final 修饰符的含义？</p>
+<p>final修饰不可变是什么意思，能具体说清楚些吗？</p>
+<blockquote>
+<p>回答：对于值类型，final修饰指的是值不可变，对于引用类型，则是引用不可变，也就是内存地址不可变</p>
+</blockquote>
+<p>static 关键字的含义？</p>
+<p>为什么equals方法要和hashcode方法同时重写？</p>
+<blockquote>
+<p>回答：从Object类的这两个方法说起，引出第一条约定（equals相等的两个对象，hashcode一定相等），其他继承Object的类都遵守该约定。</p>
+<p>举例HashMap，如果只重写了equals方法，而不重写hashcode，可能会导致HashMap中存在两个key值相同的元素（put时，hashcode不同会被认为是两个不同的key）</p>
+</blockquote>
+<p>hashMap中的桶(buckets)是什么？以及hashMap是否安全？</p>
+<p>ConcurrentHashMap如何保证安全？</p>
+<blockquote>
+<p>答：分段锁</p>
+</blockquote>
+<p>Segment是什么？</p>
+<p>既然Segment继承自ReentrantLock，那么谈谈你对ReentrantLock的理解？</p>
+<blockquote>
+<p>回答：从ReentrantLock与Synchronized的比较进行回答</p>
+</blockquote>
+<p>AQS的原理是什么？</p>
+<blockquote>
+<p>AQS是双端队列，讲了一下具体的应用：比如 CountdownLatch 、CyclicBarrier、Semaphore等</p>
+</blockquote>
+<p>公平锁是什么？</p>
+<p>对于jvm了解吗？</p>
+<p>谈谈五大内存区域？</p>
+<p>说说了解的垃圾回收算法？</p>
+<p>知道哪些垃圾收集器？</p>
+<p>类加载的阶段有哪些？</p>
+<p>双亲委派模型知道吗？</p>
+<p>数据库了解吗？</p>
+<p>InnoDB和MyISAM的区别？</p>
+<p>B+树的特点？</p>
+<p>哪四种隔离级别？</p>
+<p>什么是聚簇索引？</p>
+<p>如果我想在索引时，先用a字段进行索引，再用b字段进行索引，该怎么做？</p>
+<blockquote>
+<p>我答的是使用联合索引，面试官说也可以。（不知道最好应该用什么？）</p>
+</blockquote>
+<p>场景设计题：如果让你设计类似于滴滴打车的软件，只考虑后端，那么你会设计哪些模块？</p>
+<p>编程题：</p>
+<ol>
+<li>给定一个单向链表，里面存放着数字，例如 1 2 3 2 1 ，判断该链表中存放的数字是不是回文数？比如 1 2 3 2 1 就是回文数，而  1 2 3 4 不是。</li>
+<li>给定一个数组， 4 5 6 1 2 3 ,是由1 2 3 4 5 6翻转过来的，也可以翻转成 6 1 2 3 4 5 、 3 4 5 6 1 2 ，如何快速在里面查找某个数字的下标，如果找不到，则返回-1</li>
+</ol>
+<h2 id="浦发银行-信息科技岗-武汉-–8-29-8-30am"><a href="#浦发银行-信息科技岗-武汉-–8-29-8-30am" class="headerlink" title="浦发银行-信息科技岗-武汉                               –8.29  8:30am"></a>浦发银行-信息科技岗-武汉                               –8.29  8:30am</h2><ul>
+<li>机试<ul>
+<li>一共三道题，50分钟。<br>题目都不是很难，就第一题稍微麻烦些，但对于我这个编程菜鸡时间还是不够，这里提醒大家。第一，第一题可能比后面两题都要难些，所以不要死扣第一题，即使第一题有40分。T_T否则就像我一样，第一题差一点做出来，但是时间到了，第三题压根没做。​eclipse可能没有控制台，需要自己调出来。Windows选项里</li>
+</ul>
+</li>
+<li>面试<ul>
+<li>机试完以后就是面试，需要排队等候</li>
+<li>面试问题：<ul>
+<li><ol>
+<li>介绍一下自己做的项目，项目里用到了哪些技术栈</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>主要用的编程语言是？</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>static 关键字的作用？static 除了修饰变量、类、方法？还有呢？<br>我没get到什么意思，就说更多的不太清楚。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>非静态方法可以引用静态方法吗？<br>不可以</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>用过的集合有哪些？ HashMap和HashSet的区别是什么？</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>还用过哪些集合？ArrayList和LinkedList有什么区别？</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>用过Spring吗？bean的生命周期是什么？</li>
+</ol>
+</li>
+<li><ol start="8">
+<li>本科是网络，那计算机网络应该很不错吧？你知道TCP的Time-Wait状态吗？</li>
+</ol>
+</li>
+<li><ol start="9">
+<li>==和equals的区别？</li>
+</ol>
+</li>
+<li><ol start="10">
+<li>Http 的请求头里有哪些字段？</li>
+</ol>
+</li>
+<li><ol start="11">
+<li>Sessions 在服务器端有什么作用？</li>
+</ol>
+</li>
+<li><ol start="12">
+<li>写一道题吧？给定一个数字，例如 129，按位依次从后往前相加，得到的结果保证为个数，直到加完，最后结果也必须为个数。 129 结果 2 , 12结果为3 。 进阶：能不用循环，使用递归实现吗？</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/25/Hadoop-HDFS读写原理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -421,7 +1151,7 @@
 <li>不适合并发写入，也不支持文件随机修改</li>
 <li>不支持随机读等低延迟的访问方式</li>
 </ul>
-<h3 id="HDFS-读写流程"><a href="#HDFS-读写流程" class="headerlink" title="HDFS 读写流程"></a>HDFS 读写流程</h3><h4 id="HDFS-读流程"><a href="#HDFS-读流程" class="headerlink" title="HDFS 读流程"></a>HDFS 读流程</h4><p><strong>HDFS读流程图</strong><br><img src="/images/HDFS读写流程/HDFS读流程（慕课）.png" alt=""><br>(图片来源-慕课网)</p>
+<h3 id="HDFS-读写流程"><a href="#HDFS-读写流程" class="headerlink" title="HDFS 读写流程"></a>HDFS 读写流程</h3><h4 id="HDFS-读流程"><a href="#HDFS-读流程" class="headerlink" title="HDFS 读流程"></a>HDFS 读流程</h4><p><strong>HDFS读流程图</strong><br><img src="E:\blog\source\images/HDFS读写流程/HDFS读流程（慕课）.png" alt=""><br>(图片来源-慕课网)</p>
 <blockquote>
 <p>假设现在有三个DataNode节点，分别存放着数据Data数据块1、数据块2、数据块1、2，则如果此时客户端想要请求Data数据，流程如下：</p>
 </blockquote>
@@ -433,12 +1163,12 @@
 <li>如果在读取的过程中，遇到问题（比如读取的DataNode节点挂掉了），则客户端会再次去寻找存有该块信息副本的DataNode节点，并从其上读取出块数据。</li>
 </ol>
 <p><strong>如下图所示：</strong></p>
-<p><img src="/images/HDFS读写流程/HDFS读流程（已经读取完毕）.png" alt=""></p>
+<p><img src="E:\blog\source\images/HDFS读写流程/HDFS读流程（已经读取完毕）.png" alt=""></p>
 <blockquote>
 <p>然而上述的流程有些地方不够完善。客户端是怎么去读取块的数据的？读过程对于客户端而言是否是透明的？依据距离去寻找最优的DataNode节点，这个距离是如何计算的？</p>
 </blockquote>
 <p><strong>详细的读流程图如下所示：</strong></p>
-<p><img src="E:\blog\source\images\HDFS读写流程\HDFS读流程（详细）.png" alt=""></p>
+<p><img src="E:\blog\source\images/HDFS读写流程/HDFS读流程（详细）.png" alt=""></p>
 <h5 id="客户端如何读取DataNode上所存的块数据？"><a href="#客户端如何读取DataNode上所存的块数据？" class="headerlink" title="客户端如何读取DataNode上所存的块数据？"></a>客户端如何读取DataNode上所存的块数据？</h5><p>步骤一：客户端通过FileSyste对象的open()方法去打开希望读取的文件；</p>
 <p>步骤二：此时，DistributedFileSystem会通过RPC去调用NameNode，然后NameNode会返回存有该文件所有block的所有的DataNode信息 （对于每一个块，NameNode会返回存有该块副本的DataNode信息，并按照距离对DataNode进行排序）；</p>
 <p>步骤三：然后，DistributedFileSystem类会返回一个FSDataInputStream对象给客户端去读取数据</p>
@@ -460,7 +1190,7 @@
 <blockquote>
 <p><strong>距离</strong>是按照带宽来进行计算的，一般来说可以依据场景，对带宽进行递减：<br>1.同一节点的不同进程<br>2.同一机架的不同节点<br>3.同一数据中心的不同机架上的节点<br>4.不同数据中心的节点</p>
 </blockquote>
-<h4 id="HDFS写流程"><a href="#HDFS写流程" class="headerlink" title="HDFS写流程"></a>HDFS写流程</h4><p><strong>HDFS写流程图</strong><br><img src="/images/HDFS读写流程/HDFS写流程.png" alt=""><br>（图片来源-慕课网）</p>
+<h4 id="HDFS写流程"><a href="#HDFS写流程" class="headerlink" title="HDFS写流程"></a>HDFS写流程</h4><p><strong>HDFS写流程图</strong><br><img src="E:\blog\source\images/HDFS读写流程/HDFS写流程.png" alt=""><br>（图片来源-慕课网）</p>
 <ol>
 <li>首先，客户端会向NameNode请求写入文件</li>
 <li>NameNode通过查询自己维护的节点信息，向客户端返回还有空间可以存放数据的DataNode节点信息</li>
@@ -472,7 +1202,7 @@
 <blockquote>
 <p>然而上述的流程还不够清晰，有很多细节值得去深入了解一下。比如：<br>客户端是如何将块文件写入到DataNode中的，是以块为单位直接传输吗？<br>DataNode如何实现将数据备份到其他DataNode节点上的呢？<br>如果在写入块数据的过程中，发生了错误，HDFS会怎么处理呢？</p>
 </blockquote>
-<p>来自《Hadoop权威指南》的HDFS写文件流程图：<br><img src="/images/HDFS读写流程/HDFS写流程（详细）.png" alt=""></p>
+<p>来自《Hadoop权威指南》的HDFS写文件流程图：<br><img src="E:\blog\source\images/HDFS读写流程/HDFS写流程（详细）.png" alt=""></p>
 <h5 id="客户端如何将文件写入到DataNode？"><a href="#客户端如何将文件写入到DataNode？" class="headerlink" title="客户端如何将文件写入到DataNode？"></a>客户端如何将文件写入到DataNode？</h5><blockquote>
 <p><strong>create：</strong></p>
 </blockquote>
@@ -525,7 +1255,7 @@
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
 <li><p><a href="https://www.imooc.com/learn/928" target="_blank" rel="noopener">慕课网-Hadoop基础及演练 </a>:  <a href="https://www.imooc.com/learn/928" target="_blank" rel="noopener">https://www.imooc.com/learn/928</a></p>
 </li>
-<li><p><a href="https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html" target="_blank" rel="noopener">HDFS dfsclient写文件过程 源码分析</a>:<a href="https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html" target="_blank" rel="noopener">https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html</a></p>
+<li><p><a href="https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html" target="_blank" rel="noopener">HDFS-dfsclient写文件过程源码分析</a>:<a href="https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html" target="_blank" rel="noopener">https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html</a></p>
 </li>
 <li><p>《Hadoop权威指南》</p>
 </li>
@@ -1402,137 +2132,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/21/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Junthy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Junthy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/21/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-21T00:00:00Z">
-                2019-01-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1578,7 +2184,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1589,7 +2195,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1600,7 +2206,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

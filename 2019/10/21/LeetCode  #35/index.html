@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Spark原理,读书笔记,">
+  <meta name="keywords" content="二分查找,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="keywords" content="Spark原理,读书笔记">
+<meta name="description" content="LeetCode  #35 搜索插入位置 题目描述：给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。 你可以假设数组中无重复元素。 示例 1: 输入: [1,3,5,6], 5输出: 2示例 2: 输入: [1,3,5,6], 2输出: 1示例 3: 输入: [1,3,5,6], 7输出: 4示例 4: 输入: [1,3,5,">
+<meta name="keywords" content="二分查找">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《Spark大数据处理》- Spark原理">
-<meta property="og:url" content="http://yoursite.com/2019/03/10/《Spark大数据处理》- Spark原理/index.html">
+<meta property="og:title" content="LeetCode">
+<meta property="og:url" content="http://yoursite.com/2019/10/21/LeetCode  #35/index.html">
 <meta property="og:site_name" content="Junthy&#39;s Blog">
+<meta property="og:description" content="LeetCode  #35 搜索插入位置 题目描述：给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。 你可以假设数组中无重复元素。 示例 1: 输入: [1,3,5,6], 5输出: 2示例 2: 输入: [1,3,5,6], 2输出: 1示例 3: 输入: [1,3,5,6], 7输出: 4示例 4: 输入: [1,3,5,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/Spark原理.png">
-<meta property="og:updated_time" content="2019-03-10T06:55:28.568Z">
+<meta property="og:updated_time" content="2019-10-21T11:40:46.858Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《Spark大数据处理》- Spark原理">
-<meta name="twitter:image" content="http://yoursite.com/images/Spark原理.png">
+<meta name="twitter:title" content="LeetCode">
+<meta name="twitter:description" content="LeetCode  #35 搜索插入位置 题目描述：给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。 你可以假设数组中无重复元素。 示例 1: 输入: [1,3,5,6], 5输出: 2示例 2: 输入: [1,3,5,6], 2输出: 1示例 3: 输入: [1,3,5,6], 7输出: 4示例 4: 输入: [1,3,5,">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/10/《Spark大数据处理》- Spark原理/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/21/LeetCode  #35/">
 
 
 
 
 
-  <title>《Spark大数据处理》- Spark原理 | Junthy's Blog</title>
+  <title>LeetCode | Junthy's Blog</title>
   
 
 
@@ -262,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/《Spark大数据处理》- Spark原理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/LeetCode  #35/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Junthy">
@@ -279,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">《Spark大数据处理》- Spark原理</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode</h1>
         
 
         <div class="post-meta">
@@ -291,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T08:00:00+08:00">
-                2019-03-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00Z">
+                2019-10-21
               </time>
             
 
@@ -314,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spark/" itemprop="url" rel="index">
-                    <span itemprop="name">Spark</span>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -351,7 +352,24 @@
       
 
       
-        <p><img src="/images/Spark原理.png" alt=""></p>
+        <h1 id="LeetCode-35-搜索插入位置"><a href="#LeetCode-35-搜索插入位置" class="headerlink" title="LeetCode  #35 搜索插入位置"></a>LeetCode  #35 搜索插入位置</h1><blockquote>
+<p>题目描述：给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>
+<p>你可以假设数组中无重复元素。</p>
+<p>示例 1:</p>
+<p>输入: [1,3,5,6], 5<br>输出: 2<br>示例 2:</p>
+<p>输入: [1,3,5,6], 2<br>输出: 1<br>示例 3:</p>
+<p>输入: [1,3,5,6], 7<br>输出: 4<br>示例 4:</p>
+<p>输入: [1,3,5,6], 0<br>输出: 0</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/search-insert-position" target="_blank" rel="noopener">https://leetcode-cn.com/problems/search-insert-position</a></p>
+</blockquote>
+<h4 id="初始代码："><a href="#初始代码：" class="headerlink" title="初始代码："></a>初始代码：</h4><p>思路：</p>
+<p>第一种情况：当给定数组中包含的有该数字时，此时程序应该返回该数字在数组中的下标（也即是在数组中寻找target第一次出现的位置）；</p>
+<p>第二种情况：当给定的数组中不包含该数字时，此时程序应该返回数组中从左到右第一个大于targer的元素的所在位置作为target的插入位置</p>
+<p>特殊情况：数组中没有元素或者所有元素都小于target</p>
+<p><strong>因此我们使用二分模板中的第一种模板，寻找数组中第一个大于或等于target的元素所在下标</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> l=<span class="number">0</span>,r=nums.length-<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">if</span>(r==-<span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">while</span>(l&lt;r)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">int</span> mid = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">           <span class="keyword">if</span>(nums[mid]&gt;=target) r=mid;</span><br><span class="line">           <span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> nums[r]&gt;=target?r:r+<span class="number">1</span>; <span class="comment">//判断一下target是否是数组最大的数字</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>这里对于特殊情况的处理是放在最后，可以在二分之前进行判断，避免不必要的二分步骤。</p>
+<h4 id="针对返回值的优化"><a href="#针对返回值的优化" class="headerlink" title="针对返回值的优化"></a>针对返回值的优化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len =nums.length;</span><br><span class="line">        <span class="keyword">if</span>(len==<span class="number">0</span>||nums[len-<span class="number">1</span>]&lt;target) <span class="keyword">return</span> len;</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">0</span>,r=len-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]&gt;=target) r=mid;</span><br><span class="line">            <span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -369,9 +387,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Spark原理/" rel="tag"># Spark原理</a>
-          
-            <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
+            <a href="/tags/二分查找/" rel="tag"># 二分查找</a>
           
         </div>
       
@@ -384,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/26/Java链表基本操作和Java.util.ArrayList/" rel="next" title="Java链表基本操作和Java.util.ArrayList">
-                <i class="fa fa-chevron-left"></i> Java链表基本操作和Java.util.ArrayList
+              <a href="/2019/10/21/二分查找算法模板/" rel="next" title="二分查找算法模板">
+                <i class="fa fa-chevron-left"></i> 二分查找算法模板
               </a>
             
           </div>
@@ -393,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/21/阿里电话面试/" rel="prev" title="阿里面试总结">
-                阿里面试总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -448,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -511,6 +532,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LeetCode-35-搜索插入位置"><span class="nav-number">1.</span> <span class="nav-text">LeetCode  #35 搜索插入位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始代码："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">初始代码：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#针对返回值的优化"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">针对返回值的优化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

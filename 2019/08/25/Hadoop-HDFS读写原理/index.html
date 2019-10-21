@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="Junthy&#39;s Blog">
 <meta property="og:description" content="Hadoop 是什么 Hadoop 是一个开源的大数据框架同时也是一个分布式计算的解决方案。Hadoop = HDFS （分布式文件系统）+MapReduce（分布式计算）  HDFSHDFS 概念 数据块 NameNode DataNode   数据块：数据块是一个抽象的块，而不是整个文件。默认大小是64Mb，一般设置为128Mb，备份x3数据块的大小可以随着磁盘传输速率的提升而得到增加。  H">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/HDFS读写流程/HDFS读流程（慕课）.png">
-<meta property="og:image" content="http://yoursite.com/images/HDFS读写流程/HDFS读流程（已经读取完毕）.png">
+<meta property="og:image" content="e:/blog/source/images/HDFS读写流程/HDFS读流程（慕课）.png">
+<meta property="og:image" content="e:/blog/source/images/HDFS读写流程/HDFS读流程（已经读取完毕）.png">
 <meta property="og:image" content="e:/blog/source/images/HDFS读写流程/HDFS读流程（详细）.png">
-<meta property="og:image" content="http://yoursite.com/images/HDFS读写流程/HDFS写流程.png">
-<meta property="og:image" content="http://yoursite.com/images/HDFS读写流程/HDFS写流程（详细）.png">
-<meta property="og:updated_time" content="2019-08-25T01:20:29.355Z">
+<meta property="og:image" content="e:/blog/source/images/HDFS读写流程/HDFS写流程.png">
+<meta property="og:image" content="e:/blog/source/images/HDFS读写流程/HDFS写流程（详细）.png">
+<meta property="og:updated_time" content="2019-08-25T04:04:20.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDFS读写原理">
 <meta name="twitter:description" content="Hadoop 是什么 Hadoop 是一个开源的大数据框架同时也是一个分布式计算的解决方案。Hadoop = HDFS （分布式文件系统）+MapReduce（分布式计算）  HDFSHDFS 概念 数据块 NameNode DataNode   数据块：数据块是一个抽象的块，而不是整个文件。默认大小是64Mb，一般设置为128Mb，备份x3数据块的大小可以随着磁盘传输速率的提升而得到增加。  H">
-<meta name="twitter:image" content="http://yoursite.com/images/HDFS读写流程/HDFS读流程（慕课）.png">
+<meta name="twitter:image" content="e:/blog/source/images/HDFS读写流程/HDFS读流程（慕课）.png">
 
 
 
@@ -427,7 +427,7 @@
 <li>不适合并发写入，也不支持文件随机修改</li>
 <li>不支持随机读等低延迟的访问方式</li>
 </ul>
-<h3 id="HDFS-读写流程"><a href="#HDFS-读写流程" class="headerlink" title="HDFS 读写流程"></a>HDFS 读写流程</h3><h4 id="HDFS-读流程"><a href="#HDFS-读流程" class="headerlink" title="HDFS 读流程"></a>HDFS 读流程</h4><p><strong>HDFS读流程图</strong><br><img src="/images/HDFS读写流程/HDFS读流程（慕课）.png" alt=""><br>(图片来源-慕课网)</p>
+<h3 id="HDFS-读写流程"><a href="#HDFS-读写流程" class="headerlink" title="HDFS 读写流程"></a>HDFS 读写流程</h3><h4 id="HDFS-读流程"><a href="#HDFS-读流程" class="headerlink" title="HDFS 读流程"></a>HDFS 读流程</h4><p><strong>HDFS读流程图</strong><br><img src="E:\blog\source\images/HDFS读写流程/HDFS读流程（慕课）.png" alt=""><br>(图片来源-慕课网)</p>
 <blockquote>
 <p>假设现在有三个DataNode节点，分别存放着数据Data数据块1、数据块2、数据块1、2，则如果此时客户端想要请求Data数据，流程如下：</p>
 </blockquote>
@@ -439,12 +439,12 @@
 <li>如果在读取的过程中，遇到问题（比如读取的DataNode节点挂掉了），则客户端会再次去寻找存有该块信息副本的DataNode节点，并从其上读取出块数据。</li>
 </ol>
 <p><strong>如下图所示：</strong></p>
-<p><img src="/images/HDFS读写流程/HDFS读流程（已经读取完毕）.png" alt=""></p>
+<p><img src="E:\blog\source\images/HDFS读写流程/HDFS读流程（已经读取完毕）.png" alt=""></p>
 <blockquote>
 <p>然而上述的流程有些地方不够完善。客户端是怎么去读取块的数据的？读过程对于客户端而言是否是透明的？依据距离去寻找最优的DataNode节点，这个距离是如何计算的？</p>
 </blockquote>
 <p><strong>详细的读流程图如下所示：</strong></p>
-<p><img src="E:\blog\source\images\HDFS读写流程\HDFS读流程（详细）.png" alt=""></p>
+<p><img src="E:\blog\source\images/HDFS读写流程/HDFS读流程（详细）.png" alt=""></p>
 <h5 id="客户端如何读取DataNode上所存的块数据？"><a href="#客户端如何读取DataNode上所存的块数据？" class="headerlink" title="客户端如何读取DataNode上所存的块数据？"></a>客户端如何读取DataNode上所存的块数据？</h5><p>步骤一：客户端通过FileSyste对象的open()方法去打开希望读取的文件；</p>
 <p>步骤二：此时，DistributedFileSystem会通过RPC去调用NameNode，然后NameNode会返回存有该文件所有block的所有的DataNode信息 （对于每一个块，NameNode会返回存有该块副本的DataNode信息，并按照距离对DataNode进行排序）；</p>
 <p>步骤三：然后，DistributedFileSystem类会返回一个FSDataInputStream对象给客户端去读取数据</p>
@@ -466,7 +466,7 @@
 <blockquote>
 <p><strong>距离</strong>是按照带宽来进行计算的，一般来说可以依据场景，对带宽进行递减：<br>1.同一节点的不同进程<br>2.同一机架的不同节点<br>3.同一数据中心的不同机架上的节点<br>4.不同数据中心的节点</p>
 </blockquote>
-<h4 id="HDFS写流程"><a href="#HDFS写流程" class="headerlink" title="HDFS写流程"></a>HDFS写流程</h4><p><strong>HDFS写流程图</strong><br><img src="/images/HDFS读写流程/HDFS写流程.png" alt=""><br>（图片来源-慕课网）</p>
+<h4 id="HDFS写流程"><a href="#HDFS写流程" class="headerlink" title="HDFS写流程"></a>HDFS写流程</h4><p><strong>HDFS写流程图</strong><br><img src="E:\blog\source\images/HDFS读写流程/HDFS写流程.png" alt=""><br>（图片来源-慕课网）</p>
 <ol>
 <li>首先，客户端会向NameNode请求写入文件</li>
 <li>NameNode通过查询自己维护的节点信息，向客户端返回还有空间可以存放数据的DataNode节点信息</li>
@@ -478,7 +478,7 @@
 <blockquote>
 <p>然而上述的流程还不够清晰，有很多细节值得去深入了解一下。比如：<br>客户端是如何将块文件写入到DataNode中的，是以块为单位直接传输吗？<br>DataNode如何实现将数据备份到其他DataNode节点上的呢？<br>如果在写入块数据的过程中，发生了错误，HDFS会怎么处理呢？</p>
 </blockquote>
-<p>来自《Hadoop权威指南》的HDFS写文件流程图：<br><img src="/images/HDFS读写流程/HDFS写流程（详细）.png" alt=""></p>
+<p>来自《Hadoop权威指南》的HDFS写文件流程图：<br><img src="E:\blog\source\images/HDFS读写流程/HDFS写流程（详细）.png" alt=""></p>
 <h5 id="客户端如何将文件写入到DataNode？"><a href="#客户端如何将文件写入到DataNode？" class="headerlink" title="客户端如何将文件写入到DataNode？"></a>客户端如何将文件写入到DataNode？</h5><blockquote>
 <p><strong>create：</strong></p>
 </blockquote>
@@ -531,7 +531,7 @@
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
 <li><p><a href="https://www.imooc.com/learn/928" target="_blank" rel="noopener">慕课网-Hadoop基础及演练 </a>:  <a href="https://www.imooc.com/learn/928" target="_blank" rel="noopener">https://www.imooc.com/learn/928</a></p>
 </li>
-<li><p><a href="https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html" target="_blank" rel="noopener">HDFS dfsclient写文件过程 源码分析</a>:<a href="https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html" target="_blank" rel="noopener">https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html</a></p>
+<li><p><a href="https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html" target="_blank" rel="noopener">HDFS-dfsclient写文件过程源码分析</a>:<a href="https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html" target="_blank" rel="noopener">https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html</a></p>
 </li>
 <li><p>《Hadoop权威指南》</p>
 </li>
@@ -575,6 +575,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/29/今天的两场面试-浦发和美团/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -653,7 +657,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -664,7 +668,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -675,7 +679,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
