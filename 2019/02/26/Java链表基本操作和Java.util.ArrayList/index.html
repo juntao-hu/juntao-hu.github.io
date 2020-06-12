@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>Java链表基本操作和Java.util.ArrayList | junthy</title>
+  <meta name="description" content="今天做了一道《剑指offer》上的一道编程题“从尾到头打印链表”，具体要求如下：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。一开始我想的是通过两次遍历链表，第一次遍历得到链表元素的个数count。然后定义一个ArrayList 变量，由于ArrayList是动态数组，不能在未初始化的情况下对任意位置进行插入指定的值。所以只能先对其进行初始化，将count个ArrayList元素">
+<meta name="keywords" content="Java链表,ArrayList,剑指offer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java链表基本操作和Java.util.ArrayList">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/Java链表基本操作和Java.util.ArrayList/index.html">
+<meta property="og:site_name" content="Junthy&#39;s Blog">
+<meta property="og:description" content="今天做了一道《剑指offer》上的一道编程题“从尾到头打印链表”，具体要求如下：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。一开始我想的是通过两次遍历链表，第一次遍历得到链表元素的个数count。然后定义一个ArrayList 变量，由于ArrayList是动态数组，不能在未初始化的情况下对任意位置进行插入指定的值。所以只能先对其进行初始化，将count个ArrayList元素">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/单链表.png">
+<meta property="og:updated_time" content="2019-03-10T06:55:25.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java链表基本操作和Java.util.ArrayList">
+<meta name="twitter:description" content="今天做了一道《剑指offer》上的一道编程题“从尾到头打印链表”，具体要求如下：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。一开始我想的是通过两次遍历链表，第一次遍历得到链表元素的个数count。然后定义一个ArrayList 变量，由于ArrayList是动态数组，不能在未初始化的情况下对任意位置进行插入指定的值。所以只能先对其进行初始化，将count个ArrayList元素">
+<meta name="twitter:image" content="http://yoursite.com/images/单链表.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2019/02/26/Java链表基本操作和Java.util.ArrayList/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Junthy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/juntao-hu" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">junthy</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Big Data Development Engineer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech="">
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope="" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/归档">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/分类">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/标签">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/项目">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/书单">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/友链">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/关于">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/juntao-hu" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope="" itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spark/">Spark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arrays/">Arrays</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDFS/">HDFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java链表/">Java链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark原理/">Spark原理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分查找/">二分查找</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/剑指offer/">剑指offer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基本排序算法/">基本排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ArrayList/" style="font-size: 13px;">ArrayList</a> <a href="/tags/Arrays/" style="font-size: 13px;">Arrays</a> <a href="/tags/HDFS/" style="font-size: 13px;">HDFS</a> <a href="/tags/Java链表/" style="font-size: 13px;">Java链表</a> <a href="/tags/Spark原理/" style="font-size: 13px;">Spark原理</a> <a href="/tags/二分查找/" style="font-size: 14px;">二分查找</a> <a href="/tags/剑指offer/" style="font-size: 13px;">剑指offer</a> <a href="/tags/基本排序算法/" style="font-size: 13px;">基本排序算法</a> <a href="/tags/读书笔记/" style="font-size: 13px;">读书笔记</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/LeetCode/">LeetCode</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/22/LeetCode  #34/" class="title">LeetCode  34. 在排序数组中查找元素的第一个和最后一个位置</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-22T00:00:00.000Z" itemprop="datePublished">2019-10-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/LeetCode/">LeetCode</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/22/LeetCode  #74/" class="title">LeetCode 74. 搜索二维矩阵</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-22T00:00:00.000Z" itemprop="datePublished">2019-10-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/LeetCode/">LeetCode</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/21/LeetCode  #69/" class="title">LeetCode  69. x的平方和</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-21T00:00:00.000Z" itemprop="datePublished">2019-10-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/LeetCode/">LeetCode</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/21/二分查找算法模板/" class="title">二分查找算法模板</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-21T00:00:00.000Z" itemprop="datePublished">2019-10-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/LeetCode/">LeetCode</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/21/LeetCode  #35/" class="title">LeetCode 35. 搜索插入位置</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-21T00:00:00.000Z" itemprop="datePublished">2019-10-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Java链表基本操作和Java.util.ArrayList" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java链表基本操作和Java.util.ArrayList
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/02/26/Java链表基本操作和Java.util.ArrayList/" class="article-date">
+	  <time datetime="2019-02-26T00:00:00.000Z" itemprop="datePublished">2019-02-26</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/ArrayList/">ArrayList</a>, <a class="article-tag-link" href="/tags/Java链表/">Java链表</a>, <a class="article-tag-link" href="/tags/剑指offer/">剑指offer</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/02/26/Java链表基本操作和Java.util.ArrayList/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>今天做了一道《剑指offer》上的一道编程题“从尾到头打印链表”，具体要求如下：<br><strong>输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。</strong><br>一开始我想的是通过两次遍历链表，第一次遍历得到链表元素的个数count。然后定义一个ArrayList 变量，由于ArrayList是动态数组，不能在未初始化的情况下对任意位置进行插入指定的值。所以只能先对其进行初始化，将count个ArrayList元素赋值为初始值0。随后第二次遍历链表，将遍历得到的值，按照倒序计算出位置i，将ArrayList对应位置i的值设定为该遍历值。后来发现别人大多都是用递归来做的，因为递归的原理是堆栈，先进后出，所以最后实现的堆栈输出顺序正好是从尾到头的顺序。时间复杂度比我的方法要优。</p>
+<blockquote>
+<p><em>通过今天的做题，发现自己对于Java对单链表的操作以及java.ArrayList()的一些特性不太熟悉，所以想把今天收集到的资料记录一下，让自己能够记得清楚一些。</em></p>
+</blockquote>
+<h2 id="Java对于单链表的基本操作："><a href="#Java对于单链表的基本操作：" class="headerlink" title="Java对于单链表的基本操作："></a>Java对于单链表的基本操作：</h2><p>链表是一种常见的数据结构，链表不同于数组，其存储的位置可能不是连续的。所以当我们想要在链表中查找指定位置的结点时，只能去对链表进行遍历。而数组则直接能够通过位置找到相应的元素结点，时间复杂度为O（1）。<br>单链表的结构如下图所示：<br><img src="/images/单链表.png" alt="单链表.png"></p>
+<p>下面定义Java链表的实体类Node：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.algorithm.link;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">Node next = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">int</span> val; <span class="comment">//节点中的值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">int</span> val)</span> <span class="comment">//Node的构造函数</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">                            &#125;</span><br></pre></td></tr></table></figure></p>
+<p>Java中对单链表的常见操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.algorithm.link;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyLinkedList</span></span>&#123;</span><br><span class="line">        Node head = <span class="keyword">null</span>; <span class="comment">//定义头结点指针</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*-------------链表添加结点------------*/</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNode</span><span class="params">(<span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">        Node NewNode = <span class="keyword">new</span> Node(val);<span class="comment">//创建要添加的结点</span></span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>) <span class="comment">//当链表为空时</span></span><br><span class="line">            &#123;</span><br><span class="line">                head=NewNode;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123; <span class="comment">//当链表不为空时，则先找到链表的尾结点，然后插入待插入的结点</span></span><br><span class="line">                   Node tmp = head;</span><br><span class="line">                   <span class="keyword">while</span>(tmp.next!=<span class="keyword">null</span>)</span><br><span class="line">                   &#123;</span><br><span class="line">                        tmp=tmp.next;</span><br><span class="line">                   &#125;</span><br><span class="line">                  tmp.next=NewNode;<span class="comment">//此时tmp为链表的尾结点</span></span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*------------链表删除结点----------*/</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">deleteNode</span><span class="params">(<span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(index==<span class="number">1</span>)<span class="comment">//说明删除的是头节点</span></span><br><span class="line">            &#123;</span><br><span class="line">                head=head.next;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> i=<span class="number">2</span>;</span><br><span class="line">            <span class="comment">//因为链表不止两个结点，所以定义一个前结点，一个当前结点，分别指向目标结点的前结点和目标结点</span></span><br><span class="line">            Node preNode = head;</span><br><span class="line">            Node curNode = head.next;</span><br><span class="line">            <span class="keyword">while</span>(curNode!=<span class="keyword">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(index==i)<span class="comment">//找到要删除的结点了,此时curNode指向该结点</span></span><br><span class="line">                &#123;</span><br><span class="line">                    preNode.next=curNode.next;<span class="comment">//删除结点</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//preNode和curNode结点分别向后移动一位</span></span><br><span class="line">                preNode=preNode.next;</span><br><span class="line">                curNode=curNode.next;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;<span class="comment">//按照前面的一定能够找到待删除的结点，这句语句不会执行，只是为了程序能够通过编译。</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Java-util-ArrayList"><a href="#Java-util-ArrayList" class="headerlink" title="Java.util.ArrayList:"></a>Java.util.ArrayList:</h2><blockquote>
+<p>ArrayList是一种动态数组，可以根据元素增加的情况动态的重新分配空间，是Array的复杂版本。</p>
+</blockquote>
+<p>ArrayList相对于Array有以下几个优点：</p>
+<ul>
+<li>可以动态的增加或减少元素</li>
+<li>实现了ICollection和IList接口</li>
+<li>可以灵活的设置数组的大小</li>
+</ul>
+<h3 id="首先构建一个ArrayList，其提供了三种构造方法："><a href="#首先构建一个ArrayList，其提供了三种构造方法：" class="headerlink" title="首先构建一个ArrayList，其提供了三种构造方法："></a>首先构建一个ArrayList，其提供了三种构造方法：</h3><ol>
+<li>public ArrayList();<br>默认的构造器，将会以默认（16）的大小来初始化内部的数组 </li>
+<li>public ArrayList(ICollection);<br>用一个ICollection对象来构造，并将该集合的元素添加到ArrayList </li>
+<li>public ArrayList(int);<br>用指定的大小来初始化内部的数组</li>
+</ol>
+<p><strong><em>在构造ArrayList时，可以指定ArrayList的类型，例:ArrayList<string> a = new ArrayList<string>();或ArrayList<integer> b = new ArrayList<integer>();但指定的类型必须为构造器类型(component type)</integer></integer></string></string></em></strong></p>
+<h3 id="对ArrayList的基本操作："><a href="#对ArrayList的基本操作：" class="headerlink" title="对ArrayList的基本操作："></a>对ArrayList的基本操作：</h3><ul>
+<li>add()  增加元素</li>
+<li>remove(Object o) 遍历ArrayList，删除遇到的第一个指定的元素o<br>例： a.remove(new Integer(8)) //删除第一个元素值为8的元素</li>
+<li>remove(index i) 根据下标来删除ArrayList中指定位置的元素</li>
+<li>clear() 清除ArrayList中的所有元素</li>
+<li>contains(Object o) 判断ArrayList中是否存在指定值的元素</li>
+</ul>
+<h3 id="将ArrayList-转换为Array数组："><a href="#将ArrayList-转换为Array数组：" class="headerlink" title="将ArrayList 转换为Array数组："></a>将ArrayList 转换为Array数组：</h3><p>ArrayList提供 <strong>public <t> T[] toArray(T[] a)</t></strong> 方法能够将ArrayList类型数组转换为普通Array数组，例如我们定义了一个Integer 类型的ArrayList数组: ArrayList<integer> a = new ArrayList<integer>() 并在其上通过循环，add了10个元素。此时，我们若想将其转换成为数组可以这样去转换：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer[] value=(Integer[])a.toArray(<span class="keyword">new</span> Integer[a.size()]);</span><br></pre></td></tr></table></figure></integer></integer></p>
+<p>上述返回的数组的长度大小正好为a数组的大小，我们也可以指定new Integer[]里面的数字，当该长度容纳不下待转换的ArrayList元素个数时，该方法会重新依据ArrayList的大小重新分配一个数组，将ArrayList a 中的元素复制到里面并返回。当指定的数目大于a中的元素个数时，也就是数组的空间有剩余。此时，toArray()方法会将剩余的数组部分的元素值都置为 <em>null</em>。</p>
+<h3 id="将数组转换为ArrayList："><a href="#将数组转换为ArrayList：" class="headerlink" title="将数组转换为ArrayList："></a>将数组转换为ArrayList：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String数组 array;</span><br><span class="line">List&lt;String&gt; list=Arrays.asList(array); <span class="comment">//将String数组array转化成List</span></span><br></pre></td></tr></table></figure>
+<p>但上述的转化方法返回的list无法对其进行修改和增加元素，仿佛是静态固定的。<a href="https://blog.csdn.net/diyinqian/article/details/78621223" target="_blank" rel="noopener">[<strong>解释</strong>]</a> 所以还可以通过以下的方法去将数组转换成ArrayList:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; c = <span class="keyword">new</span> ArrayList&lt;String&gt;(Arrays.asList(array));</span><br></pre></td></tr></table></figure></p>
+<p>此时返回的ArrayList数组可以正常地对其进行操作。</p>
+<h3 id="关于数组扩容对ArrayList效率的影响问题："><a href="#关于数组扩容对ArrayList效率的影响问题：" class="headerlink" title="关于数组扩容对ArrayList效率的影响问题："></a>关于数组扩容对ArrayList效率的影响问题：</h3><p>当我们以默认不带指定大小的构造器去构造一个ArrayList时，默认会将其大小初始化分配为16。在我们使用增加元素的方法之前，例如使用add（）、addAll（）等，都会首先检查内部数组的大小是否够用，如果不够用，则会以当前容量的两倍来重新构建一个数组，并将旧数组的元素copy到新数组中，并丢弃掉旧数组。这种在临界点进行扩容的操作，会比较影响效率。</p>
+<p>比如，一个可能有200个元素的数据动态添加到一个以默认16个元素大小创建的ArrayList中，将会经过： 16*2*2*2*2 = 256 四次的扩容才会满足最终的要求，那么如果一开始就以： ArrayList List = new ArrayList( 210 ); 的方式创建ArrayList，不仅会减少4次数组创建和Copy的操作，还会减少内存使用。</p>
+<p>另外一种可能发生的情况是，比如我们定义了一个ArrayList数组，且其大小为30，但我们却有31个元素要添加进去，该ArrayList数组则会经过一个扩容容量变为60，这样最后便会有29个元素的存储空间是浪费掉的。此时，我们可以通过 <em>trimToSize</em> 方法去让当前数组的大小变为实际元素个数的大小，还可以提前大致预测一下数组的大小，然后在数组创建之时就指定好大小，这样能够避免去浪费更多的空间。</p>
+<h3 id="java-util-Arrays-、java-util-ArrayList-、java数组之间的关系"><a href="#java-util-Arrays-、java-util-ArrayList-、java数组之间的关系" class="headerlink" title="java.util.Arrays()、java.util.ArrayList()、java数组之间的关系:"></a>java.util.Arrays()、java.util.ArrayList()、java数组之间的关系:</h3><p>Arrays()实现了对数组的一系列操作方法，而ArrayList是动态数组，其大小可以动态变化。</p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
+<li><p><a href="https://www.cnblogs.com/bjh1117/p/8335108.html" target="_blank" rel="noopener">java实现单链表操作</a> ：<a href="https://www.cnblogs.com/bjh1117/p/8335108.html" target="_blank" rel="noopener">https://www.cnblogs.com/bjh1117/p/8335108.html</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/qingchunshiguang/p/6103731.html" target="_blank" rel="noopener">java.util.ArrayList()</a> : <a href="https://www.cnblogs.com/qingchunshiguang/p/6103731.html" target="_blank" rel="noopener">https://www.cnblogs.com/qingchunshiguang/p/6103731.html</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2019/02/26/Java链表基本操作和Java.util.ArrayList/" title="Java链表基本操作和Java.util.ArrayList" target="_blank" rel="external">http://yoursite.com/2019/02/26/Java链表基本操作和Java.util.ArrayList/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/juntao-hu" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/juntao-hu" target="_blank"><span class="text-dark">junthy</span><small class="ml-1x">Big Data Development Engineer</small></a></h3>
+        <div>一个平凡人</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom="">
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/03/10/《Spark大数据处理》- Spark原理/" title="《Spark大数据处理》- Spark原理"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/02/13/Java.util.Arrays的常用方法/" title="Java.util.Arrays 常用方法"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope="" itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/juntao-hu" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
