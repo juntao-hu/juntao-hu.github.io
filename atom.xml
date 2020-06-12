@@ -5,9 +5,9 @@
   <subtitle>To Be A Better Man</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://81.68.66.74/"/>
+  <link href="https://juntao-hu.github.io/"/>
   <updated>2019-10-22T07:40:08.127Z</updated>
-  <id>http://81.68.66.74/</id>
+  <id>https://juntao-hu.github.io/</id>
   
   <author>
     <name>Junthy</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>LeetCode 74. 搜索二维矩阵</title>
-    <link href="http://81.68.66.74/2019/10/22/LeetCode-74-search-a-2d-matrix/"/>
-    <id>http://81.68.66.74/2019/10/22/LeetCode-74-search-a-2d-matrix/</id>
+    <link href="https://juntao-hu.github.io/2019/10/22/LeetCode-74-search-a-2d-matrix/"/>
+    <id>https://juntao-hu.github.io/2019/10/22/LeetCode-74-search-a-2d-matrix/</id>
     <published>2019-10-22T00:00:00.000Z</published>
     <updated>2019-10-22T07:40:08.127Z</updated>
     
@@ -33,17 +33,17 @@
     </summary>
     
     
-      <category term="LeetCode" scheme="http://81.68.66.74/categories/LeetCode/"/>
+      <category term="LeetCode" scheme="https://juntao-hu.github.io/categories/LeetCode/"/>
     
     
-      <category term="二分查找" scheme="http://81.68.66.74/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+      <category term="二分查找" scheme="https://juntao-hu.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     
   </entry>
   
   <entry>
     <title>LeetCode  34. 在排序数组中查找元素的第一个和最后一个位置</title>
-    <link href="http://81.68.66.74/2019/10/22/LeetCode-34-find-first-and-last-position-of-element-in-sorted-array/"/>
-    <id>http://81.68.66.74/2019/10/22/LeetCode-34-find-first-and-last-position-of-element-in-sorted-array/</id>
+    <link href="https://juntao-hu.github.io/2019/10/22/LeetCode-34-find-first-and-last-position-of-element-in-sorted-array/"/>
+    <id>https://juntao-hu.github.io/2019/10/22/LeetCode-34-find-first-and-last-position-of-element-in-sorted-array/</id>
     <published>2019-10-22T00:00:00.000Z</published>
     <updated>2019-10-22T06:27:48.843Z</updated>
     
@@ -57,17 +57,17 @@
     </summary>
     
     
-      <category term="LeetCode" scheme="http://81.68.66.74/categories/LeetCode/"/>
+      <category term="LeetCode" scheme="https://juntao-hu.github.io/categories/LeetCode/"/>
     
     
-      <category term="二分查找" scheme="http://81.68.66.74/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+      <category term="二分查找" scheme="https://juntao-hu.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     
   </entry>
   
   <entry>
     <title>二分查找算法模板</title>
-    <link href="http://81.68.66.74/2019/10/21/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
-    <id>http://81.68.66.74/2019/10/21/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/</id>
+    <link href="https://juntao-hu.github.io/2019/10/21/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
+    <id>https://juntao-hu.github.io/2019/10/21/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/</id>
     <published>2019-10-21T00:00:00.000Z</published>
     <updated>2019-10-21T11:58:37.558Z</updated>
     
@@ -81,17 +81,17 @@
     </summary>
     
     
-      <category term="LeetCode" scheme="http://81.68.66.74/categories/LeetCode/"/>
+      <category term="LeetCode" scheme="https://juntao-hu.github.io/categories/LeetCode/"/>
     
     
-      <category term="二分查找" scheme="http://81.68.66.74/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+      <category term="二分查找" scheme="https://juntao-hu.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     
   </entry>
   
   <entry>
     <title>LeetCode 35. 搜索插入位置</title>
-    <link href="http://81.68.66.74/2019/10/21/LeetCode-35-search-insert-position/"/>
-    <id>http://81.68.66.74/2019/10/21/LeetCode-35-search-insert-position/</id>
+    <link href="https://juntao-hu.github.io/2019/10/21/LeetCode-35-search-insert-position/"/>
+    <id>https://juntao-hu.github.io/2019/10/21/LeetCode-35-search-insert-position/</id>
     <published>2019-10-21T00:00:00.000Z</published>
     <updated>2019-10-21T11:59:37.375Z</updated>
     
@@ -105,17 +105,17 @@
     </summary>
     
     
-      <category term="LeetCode" scheme="http://81.68.66.74/categories/LeetCode/"/>
+      <category term="LeetCode" scheme="https://juntao-hu.github.io/categories/LeetCode/"/>
     
     
-      <category term="二分查找" scheme="http://81.68.66.74/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+      <category term="二分查找" scheme="https://juntao-hu.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     
   </entry>
   
   <entry>
     <title>LeetCode  69. x的平方和</title>
-    <link href="http://81.68.66.74/2019/10/21/LeetCode-69-sqrtx/"/>
-    <id>http://81.68.66.74/2019/10/21/LeetCode-69-sqrtx/</id>
+    <link href="https://juntao-hu.github.io/2019/10/21/LeetCode-69-sqrtx/"/>
+    <id>https://juntao-hu.github.io/2019/10/21/LeetCode-69-sqrtx/</id>
     <published>2019-10-21T00:00:00.000Z</published>
     <updated>2019-10-21T11:59:38.775Z</updated>
     
@@ -129,17 +129,17 @@
     </summary>
     
     
-      <category term="LeetCode" scheme="http://81.68.66.74/categories/LeetCode/"/>
+      <category term="LeetCode" scheme="https://juntao-hu.github.io/categories/LeetCode/"/>
     
     
-      <category term="二分查找" scheme="http://81.68.66.74/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+      <category term="二分查找" scheme="https://juntao-hu.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     
   </entry>
   
   <entry>
     <title>浦发和美团面试</title>
-    <link href="http://81.68.66.74/2019/08/30/%E6%B5%A6%E5%8F%91%E5%92%8C%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
-    <id>http://81.68.66.74/2019/08/30/%E6%B5%A6%E5%8F%91%E5%92%8C%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</id>
+    <link href="https://juntao-hu.github.io/2019/08/30/%E6%B5%A6%E5%8F%91%E5%92%8C%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
+    <id>https://juntao-hu.github.io/2019/08/30/%E6%B5%A6%E5%8F%91%E5%92%8C%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</id>
     <published>2019-08-30T00:00:00.000Z</published>
     <updated>2020-06-12T09:30:50.347Z</updated>
     
@@ -153,15 +153,15 @@
     </summary>
     
     
-      <category term="面试" scheme="http://81.68.66.74/categories/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="https://juntao-hu.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
     
     
   </entry>
   
   <entry>
     <title>HDFS读写原理</title>
-    <link href="http://81.68.66.74/2019/08/25/Hadoop-HDFS%E8%AF%BB%E5%86%99%E5%8E%9F%E7%90%86/"/>
-    <id>http://81.68.66.74/2019/08/25/Hadoop-HDFS%E8%AF%BB%E5%86%99%E5%8E%9F%E7%90%86/</id>
+    <link href="https://juntao-hu.github.io/2019/08/25/Hadoop-HDFS%E8%AF%BB%E5%86%99%E5%8E%9F%E7%90%86/"/>
+    <id>https://juntao-hu.github.io/2019/08/25/Hadoop-HDFS%E8%AF%BB%E5%86%99%E5%8E%9F%E7%90%86/</id>
     <published>2019-08-25T00:00:00.000Z</published>
     <updated>2019-08-25T04:04:20.417Z</updated>
     
@@ -175,17 +175,17 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://81.68.66.74/categories/Hadoop/"/>
+      <category term="Hadoop" scheme="https://juntao-hu.github.io/categories/Hadoop/"/>
     
     
-      <category term="HDFS" scheme="http://81.68.66.74/tags/HDFS/"/>
+      <category term="HDFS" scheme="https://juntao-hu.github.io/tags/HDFS/"/>
     
   </entry>
   
   <entry>
     <title>基本排序算法（Java）</title>
-    <link href="http://81.68.66.74/2019/04/13/%E5%9F%BA%E6%9C%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-Java/"/>
-    <id>http://81.68.66.74/2019/04/13/%E5%9F%BA%E6%9C%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-Java/</id>
+    <link href="https://juntao-hu.github.io/2019/04/13/%E5%9F%BA%E6%9C%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-Java/"/>
+    <id>https://juntao-hu.github.io/2019/04/13/%E5%9F%BA%E6%9C%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-Java/</id>
     <published>2019-04-13T00:00:00.000Z</published>
     <updated>2019-04-13T13:52:35.405Z</updated>
     
@@ -199,17 +199,17 @@
     </summary>
     
     
-      <category term="Java" scheme="http://81.68.66.74/categories/Java/"/>
+      <category term="Java" scheme="https://juntao-hu.github.io/categories/Java/"/>
     
     
-      <category term="基本排序算法" scheme="http://81.68.66.74/tags/%E5%9F%BA%E6%9C%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+      <category term="基本排序算法" scheme="https://juntao-hu.github.io/tags/%E5%9F%BA%E6%9C%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>阿里面试总结</title>
-    <link href="http://81.68.66.74/2019/03/21/%E9%98%BF%E9%87%8C%E7%94%B5%E8%AF%9D%E9%9D%A2%E8%AF%95/"/>
-    <id>http://81.68.66.74/2019/03/21/%E9%98%BF%E9%87%8C%E7%94%B5%E8%AF%9D%E9%9D%A2%E8%AF%95/</id>
+    <link href="https://juntao-hu.github.io/2019/03/21/%E9%98%BF%E9%87%8C%E7%94%B5%E8%AF%9D%E9%9D%A2%E8%AF%95/"/>
+    <id>https://juntao-hu.github.io/2019/03/21/%E9%98%BF%E9%87%8C%E7%94%B5%E8%AF%9D%E9%9D%A2%E8%AF%95/</id>
     <published>2019-03-21T00:00:00.000Z</published>
     <updated>2019-03-21T11:41:39.344Z</updated>
     
@@ -223,15 +223,15 @@
     </summary>
     
     
-      <category term="面试" scheme="http://81.68.66.74/categories/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="https://juntao-hu.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
     
     
   </entry>
   
   <entry>
     <title>《Spark大数据处理》- Spark原理</title>
-    <link href="http://81.68.66.74/2019/03/10/%E3%80%8ASpark%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E3%80%8B-%20Spark%E5%8E%9F%E7%90%86/"/>
-    <id>http://81.68.66.74/2019/03/10/%E3%80%8ASpark%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E3%80%8B-%20Spark%E5%8E%9F%E7%90%86/</id>
+    <link href="https://juntao-hu.github.io/2019/03/10/%E3%80%8ASpark%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E3%80%8B-%20Spark%E5%8E%9F%E7%90%86/"/>
+    <id>https://juntao-hu.github.io/2019/03/10/%E3%80%8ASpark%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E3%80%8B-%20Spark%E5%8E%9F%E7%90%86/</id>
     <published>2019-03-10T00:00:00.000Z</published>
     <updated>2019-03-10T06:55:28.568Z</updated>
     
@@ -245,19 +245,19 @@
     </summary>
     
     
-      <category term="Spark" scheme="http://81.68.66.74/categories/Spark/"/>
+      <category term="Spark" scheme="https://juntao-hu.github.io/categories/Spark/"/>
     
     
-      <category term="Spark原理" scheme="http://81.68.66.74/tags/Spark%E5%8E%9F%E7%90%86/"/>
+      <category term="Spark原理" scheme="https://juntao-hu.github.io/tags/Spark%E5%8E%9F%E7%90%86/"/>
     
-      <category term="读书笔记" scheme="http://81.68.66.74/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="https://juntao-hu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Java链表基本操作和Java.util.ArrayList</title>
-    <link href="http://81.68.66.74/2019/02/26/Java%E9%93%BE%E8%A1%A8%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
-    <id>http://81.68.66.74/2019/02/26/Java%E9%93%BE%E8%A1%A8%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
+    <link href="https://juntao-hu.github.io/2019/02/26/Java%E9%93%BE%E8%A1%A8%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    <id>https://juntao-hu.github.io/2019/02/26/Java%E9%93%BE%E8%A1%A8%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
     <published>2019-02-26T00:00:00.000Z</published>
     <updated>2019-03-10T06:55:25.641Z</updated>
     
@@ -271,21 +271,21 @@
     </summary>
     
     
-      <category term="Java" scheme="http://81.68.66.74/categories/Java/"/>
+      <category term="Java" scheme="https://juntao-hu.github.io/categories/Java/"/>
     
     
-      <category term="Java链表" scheme="http://81.68.66.74/tags/Java%E9%93%BE%E8%A1%A8/"/>
+      <category term="Java链表" scheme="https://juntao-hu.github.io/tags/Java%E9%93%BE%E8%A1%A8/"/>
     
-      <category term="ArrayList" scheme="http://81.68.66.74/tags/ArrayList/"/>
+      <category term="ArrayList" scheme="https://juntao-hu.github.io/tags/ArrayList/"/>
     
-      <category term="剑指offer" scheme="http://81.68.66.74/tags/%E5%89%91%E6%8C%87offer/"/>
+      <category term="剑指offer" scheme="https://juntao-hu.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
     
   </entry>
   
   <entry>
     <title>Java.util.Arrays 常用方法</title>
-    <link href="http://81.68.66.74/2019/02/13/Java.util.Arrays%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"/>
-    <id>http://81.68.66.74/2019/02/13/Java.util.Arrays%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</id>
+    <link href="https://juntao-hu.github.io/2019/02/13/Java.util.Arrays%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    <id>https://juntao-hu.github.io/2019/02/13/Java.util.Arrays%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</id>
     <published>2019-02-13T00:00:00.000Z</published>
     <updated>2019-03-10T06:55:27.156Z</updated>
     
@@ -299,10 +299,10 @@
     </summary>
     
     
-      <category term="Java" scheme="http://81.68.66.74/categories/Java/"/>
+      <category term="Java" scheme="https://juntao-hu.github.io/categories/Java/"/>
     
     
-      <category term="Arrays" scheme="http://81.68.66.74/tags/Arrays/"/>
+      <category term="Arrays" scheme="https://juntao-hu.github.io/tags/Arrays/"/>
     
   </entry>
   
