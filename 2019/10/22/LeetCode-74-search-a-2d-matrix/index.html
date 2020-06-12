@@ -17,27 +17,21 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>HDFS读写原理 | junthy</title>
-  <meta name="description" content="Hadoop 是什么 Hadoop 是一个开源的大数据框架同时也是一个分布式计算的解决方案。Hadoop = HDFS （分布式文件系统）+MapReduce（分布式计算）  HDFSHDFS 概念 数据块 NameNode DataNode   数据块：数据块是一个抽象的块，而不是整个文件。默认大小是64Mb，一般设置为128Mb，备份x3数据块的大小可以随着磁盘传输速率的提升而得到增加。  H">
-<meta name="keywords" content="HDFS">
+  <title>LeetCode 74. 搜索二维矩阵 | junthy</title>
+  <meta name="description" content="题目描述：编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性： 每行中的整数从左到右按升序排列。每行的第一个整数大于前一行的最后一个整数。示例 1: 输入:matrix = [  [1,   3,  5,  7],  [10, 11, 16, 20],  [23, 30, 34, 50]]target = 3输出: true示例 2: 输入:matrix = [">
+<meta name="keywords" content="二分查找">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDFS读写原理">
-<meta property="og:url" content="http://81.68.66.74/2019/08/25/Hadoop-HDFS读写原理/index.html">
+<meta property="og:title" content="LeetCode 74. 搜索二维矩阵">
+<meta property="og:url" content="http://81.68.66.74/2019/10/22/LeetCode-74-search-a-2d-matrix/index.html">
 <meta property="og:site_name" content="Junthy&#39;s Blog">
-<meta property="og:description" content="Hadoop 是什么 Hadoop 是一个开源的大数据框架同时也是一个分布式计算的解决方案。Hadoop = HDFS （分布式文件系统）+MapReduce（分布式计算）  HDFSHDFS 概念 数据块 NameNode DataNode   数据块：数据块是一个抽象的块，而不是整个文件。默认大小是64Mb，一般设置为128Mb，备份x3数据块的大小可以随着磁盘传输速率的提升而得到增加。  H">
+<meta property="og:description" content="题目描述：编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性： 每行中的整数从左到右按升序排列。每行的第一个整数大于前一行的最后一个整数。示例 1: 输入:matrix = [  [1,   3,  5,  7],  [10, 11, 16, 20],  [23, 30, 34, 50]]target = 3输出: true示例 2: 输入:matrix = [">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="e:/blog/source/images/HDFS读写流程/HDFS读流程（慕课）.png">
-<meta property="og:image" content="e:/blog/source/images/HDFS读写流程/HDFS读流程（已经读取完毕）.png">
-<meta property="og:image" content="e:/blog/source/images/HDFS读写流程/HDFS读流程（详细）.png">
-<meta property="og:image" content="e:/blog/source/images/HDFS读写流程/HDFS写流程.png">
-<meta property="og:image" content="e:/blog/source/images/HDFS读写流程/HDFS写流程（详细）.png">
-<meta property="og:updated_time" content="2019-08-25T04:04:20.417Z">
+<meta property="og:updated_time" content="2019-10-22T07:40:08.127Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDFS读写原理">
-<meta name="twitter:description" content="Hadoop 是什么 Hadoop 是一个开源的大数据框架同时也是一个分布式计算的解决方案。Hadoop = HDFS （分布式文件系统）+MapReduce（分布式计算）  HDFSHDFS 概念 数据块 NameNode DataNode   数据块：数据块是一个抽象的块，而不是整个文件。默认大小是64Mb，一般设置为128Mb，备份x3数据块的大小可以随着磁盘传输速率的提升而得到增加。  H">
-<meta name="twitter:image" content="e:/blog/source/images/HDFS读写流程/HDFS读流程（慕课）.png">
+<meta name="twitter:title" content="LeetCode 74. 搜索二维矩阵">
+<meta name="twitter:description" content="题目描述：编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性： 每行中的整数从左到右按升序排列。每行的第一个整数大于前一行的最后一个整数。示例 1: 输入:matrix = [  [1,   3,  5,  7],  [10, 11, 16, 20],  [23, 30, 34, 50]]target = 3输出: true示例 2: 输入:matrix = [">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://81.68.66.74/2019/08/25/Hadoop-HDFS读写原理/index.html">
+  <link rel="canonical" href="http://81.68.66.74/2019/10/22/LeetCode-74-search-a-2d-matrix/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -344,14 +338,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Hadoop-HDFS读写原理" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <article id="post-LeetCode-74-search-a-2d-matrix" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      HDFS读写原理
+      LeetCode 74. 搜索二维矩阵
     </h1>
   
 
@@ -359,20 +353,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/08/25/Hadoop-HDFS读写原理/" class="article-date">
-	  <time datetime="2019-08-25T00:00:00.000Z" itemprop="datePublished">2019/08/25</time>
+	<a href="/2019/10/22/LeetCode-74-search-a-2d-matrix/" class="article-date">
+	  <time datetime="2019-10-22T00:00:00.000Z" itemprop="datePublished">2019/10/22</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/HDFS/">HDFS</a>
+	<a class="article-tag-link" href="/tags/二分查找/">二分查找</a>
   </span>
 
 
@@ -387,193 +381,44 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2019/08/25/Hadoop-HDFS读写原理/" class="leancloud_visitors" data-flag-title="HDFS读写原理">0</span>
+    	<span id="/2019/10/22/LeetCode-74-search-a-2d-matrix/" class="leancloud_visitors" data-flag-title="LeetCode 74. 搜索二维矩阵">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/08/25/Hadoop-HDFS读写原理/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/22/LeetCode-74-search-a-2d-matrix/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="Hadoop-是什么"><a href="#Hadoop-是什么" class="headerlink" title="Hadoop 是什么"></a>Hadoop 是什么</h2><blockquote>
-<p>Hadoop 是一个开源的大数据框架同时也是一个分布式计算的解决方案。Hadoop = <strong>HDFS （分布式文件系统）+MapReduce（分布式计算）</strong></p>
+        <blockquote>
+<p>题目描述：编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：</p>
+<p>每行中的整数从左到右按升序排列。<br>每行的第一个整数大于前一行的最后一个整数。<br>示例 1:</p>
+<p>输入:<br>matrix = [<br>  [1,   3,  5,  7],<br>  [10, 11, 16, 20],<br>  [23, 30, 34, 50]<br>]<br>target = 3<br>输出: true<br>示例 2:</p>
+<p>输入:<br>matrix = [<br>  [1,   3,  5,  7],<br>  [10, 11, 16, 20],<br>  [23, 30, 34, 50]<br>]<br>target = 13<br>输出: false</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/search-a-2d-matrix" target="_blank" rel="noopener">https://leetcode-cn.com/problems/search-a-2d-matrix</a></p>
 </blockquote>
-<h2 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h2><h3 id="HDFS-概念"><a href="#HDFS-概念" class="headerlink" title="HDFS 概念"></a>HDFS 概念</h3><ol>
-<li>数据块</li>
-<li>NameNode</li>
-<li>DataNode </li>
-</ol>
-<h4 id="数据块："><a href="#数据块：" class="headerlink" title="数据块："></a>数据块：</h4><p>数据块是一个抽象的块，而不是整个文件。默认大小是64Mb，一般设置为128Mb，备份x3<br>数据块的大小可以随着磁盘传输速率的提升而得到增加。</p>
-<blockquote>
-<p>HDFS的块比磁盘的大，主要是减少寻址时间在整个文件传输时间中的占比。比如为了让磁盘寻址时间只占到整个文件传输时间的1%，而寻址时间为10ms，磁盘的IO传输速率为100Mb/s，那么一个块的大小要大于100Mb才能达到这个要求。随着以后磁盘的传输速率越来越高，块的大小也会越来越大的。 【但是块的大小也不会很大，因为MapReduce中的map任务一次只处理一个块的数据，如果map任务过少（少于集群的节点数量），作业的运行效率也会比较慢】</p>
-</blockquote>
-<h5 id="对数据块进行抽象的好处："><a href="#对数据块进行抽象的好处：" class="headerlink" title="对数据块进行抽象的好处："></a>对数据块进行抽象的好处：</h5><ul>
-<li>一个文件的大小可以大于集群网络中任一个磁盘的大小。因为可以对文件进行分块存储，所以在一种极端情况下，一个集群只存放了一个文件，该文件占满了集群中的所有磁盘。</li>
-<li>使用抽象块而不是整个文件作为存储单元，可以简化存储子系统的设计。首先块的大小是固定的，所以一个磁盘能够存储多少个块很容易就能够计算出来。另外也消除了对于元数据的顾虑，块只是要存储的大块数据，而文件的元数据，例如权限信息等等，并不需要与块进行一同存储，可以进行单独管理。</li>
-<li>块适合于提供备份和冗余容错的作用，通过将块进行复制副本，通常是3个，当因损坏或者机器故障而丢失的块，我们便可以从其他候选机器将副本块复制到另一台能够正常工作的机器上，保证副本的数量保持不变。</li>
-</ul>
-<hr>
-<blockquote>
-<p>HDFS集群有两类节点，以管理节点-工作节点的模式运行着，分别是NameNode和DataNode。</p>
-</blockquote>
-<h4 id="NameNode"><a href="#NameNode" class="headerlink" title="NameNode"></a>NameNode</h4><p>NameNode ：</p>
-<ol>
-<li>管理文件系统的命名空间，存放着元数据 （对应文件：<strong>命名空间镜像文件</strong>）</li>
-<li>维护着文件系统树以及整棵树内所有的文件以及目录 （对应文件：<strong>编辑日志</strong>）</li>
-<li>记录着每个文件各个块所在的数据节点信息，但并不会一直保存块的位置信息，因为在重启时会根据数据节点信息重建。</li>
-</ol>
-<h5 id="联邦HDFS"><a href="#联邦HDFS" class="headerlink" title="联邦HDFS"></a>联邦HDFS</h5><blockquote>
-<p>NameNode节点在内存中保存着文件系统中每个文件和每个数据块的引用关系，所以NameNode的内存大小会成为集群扩展的一个瓶颈。</p>
-</blockquote>
-<blockquote>
-<p>在Hadoop 2.x版本中引入了联邦HDFS，允许在集群中添加多个NameNode节点，以实现扩展。</p>
-</blockquote>
-<blockquote>
-<p>在联邦环境下，每个NameNode都维护着一个<strong>命名空间卷</strong>( 比如NameNode_1负责 /usr NameNode_2 负责 /share )，由<strong>命名空间的元数据和数据块池</strong>组成。</p>
-<blockquote>
-<p>数据块池里面存放着该命名空间下所有的数据块。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>命名空间卷之间不进行通信，甚至其中一个挂掉也不会影响另一个。但每个DataNode需要注册到每一个NameNode上，也需要存储着来自各个数据块池的数据块。</p>
-</blockquote>
-<h4 id="DataNode"><a href="#DataNode" class="headerlink" title="DataNode"></a>DataNode</h4><ol>
-<li>存储以及检索数据块</li>
-<li>向NameNode更新所存储块的列表</li>
-</ol>
-<hr>
-<h3 id="NameNode容错"><a href="#NameNode容错" class="headerlink" title="NameNode容错"></a>NameNode容错</h3><blockquote>
-<p>若NameNode失效，则我们无法访问到文件系统上的所有文件。因为我们不知道怎么去根据DataNode的块去重建文件。因此需要对NameNode进行容错处理。</p>
-</blockquote>
-<p><strong><em>两种容错机制：</em></strong></p>
-<ul>
-<li><p>对于<strong>组成文件系统元数据持久状态的文件</strong> 我们可以使NameNode在多个文件系统上对其进行保存，比如最常用的就是在将持久状态写入本地磁盘的同时也将其<strong>写入到远程挂载的NFS网络文件系统</strong>中。</p>
-</li>
-<li><p>运行一个<strong>辅助NameNode节点</strong> （Secondary NameNode）该节点却不能被用作NameNode，它的主要作用是<strong>定期合并编辑日志文件和命名空间镜像文件</strong>，防止其过大。它在合并后会生成命名空间镜像文件的副本，当NameNode失效时会启用。但是辅助NameNode节点保存的信息总是会滞后于NameNode节点，所以如果想要实现容错机制，可以在主NameNode节点失效后，将<strong>保存在NFS的文件系统元数据复制到Secondary NamoNode</strong>上来，将其作为新的主NameNode运行。</p>
+<h4 id="初始代码："><a href="#初始代码：" class="headerlink" title="初始代码："></a>初始代码：</h4><p>思路：</p>
+<p>这道题有一个性质，那就是每行按照从左到右升序排序且下一行的第一个数字要大于上一行的最后一个数字，这让我们能够想到如果将这个矩阵按照行进行首尾拼接起来最后组成一个一维数组，那么这个一维数组满足升序要求，进行二分查找很方便。那么我们所需要多做的就是，将一维数组中任一点的下标转换成矩阵中对应的坐标位置。</p>
+<p><strong>转换位置：假设矩阵有n行。给定一个一维数组的下标mid，那么其对应的矩阵的位置为 (mid/n , mid%n)</strong></p>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] mat, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//巧妙的方法，将其看成一维数组（需要做下标转换）</span></span><br><span class="line">        <span class="keyword">int</span> m= mat.length;</span><br><span class="line">        <span class="keyword">if</span>(m==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> n = mat[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">0</span>,r=m*n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(l+r+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> x=mid/n; <span class="keyword">int</span> y=mid%n;</span><br><span class="line">            <span class="keyword">if</span>(mat[x][y]&lt;=target)</span><br><span class="line">                l=mid;</span><br><span class="line">            <span class="keyword">else</span> r=mid-<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mat[l/n][l%n]==target?<span class="keyword">true</span>:<span class="keyword">false</span>; <span class="comment">//最后判断该数组中是否存在target</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><ul>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m= mat.length;</span><br><span class="line"><span class="keyword">if</span>(m==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">int</span> n = mat[<span class="number">0</span>].length;</span><br><span class="line"><span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><strong><em>HA高可用</em></strong></p>
-<hr>
-<h3 id="HDFS-优点"><a href="#HDFS-优点" class="headerlink" title="HDFS 优点"></a>HDFS 优点</h3><ul>
-<li>适合大文件存储，支持TB、PB级文件的存储</li>
-<li>可以构建在廉价的机器上，并能够提供容错机制和恢复机制</li>
-<li>支持流式数据访问，一次写入，多次读取更高效</li>
-</ul>
-<h3 id="HDFS-缺点"><a href="#HDFS-缺点" class="headerlink" title="HDFS 缺点"></a>HDFS 缺点</h3><ul>
-<li>不适合大量小文件存储</li>
-<li>不适合并发写入，也不支持文件随机修改</li>
-<li>不支持随机读等低延迟的访问方式</li>
-</ul>
-<h3 id="HDFS-读写流程"><a href="#HDFS-读写流程" class="headerlink" title="HDFS 读写流程"></a>HDFS 读写流程</h3><h4 id="HDFS-读流程"><a href="#HDFS-读流程" class="headerlink" title="HDFS 读流程"></a>HDFS 读流程</h4><p><strong>HDFS读流程图</strong><br><img src="E:\blog\source\images/HDFS读写流程/HDFS读流程（慕课）.png" alt=""><br>(图片来源-慕课网)</p>
-<blockquote>
-<p>假设现在有三个DataNode节点，分别存放着数据Data数据块1、数据块2、数据块1、2，则如果此时客户端想要请求Data数据，流程如下：</p>
-</blockquote>
-<ol>
-<li>Client向NameNode发出请求，请求Data文件。</li>
-<li>NameNode通过其所维护的相关的数据块的信息，会把<strong>该Data文件的所有block的所有的DataNode信息</strong>返回给Client。</li>
-<li>然后Client随即从<strong>距离</strong>(按照带宽进行计算出来的距离) 最近且保存着文件第一个块的DataNode节点上读取数据</li>
-<li>在读取完第一个块的数据以后，便会寻找下一个块的最佳DataNode，并从其上读取数据，直到将所有的Data文件块数据读取完毕</li>
-<li>如果在读取的过程中，遇到问题（比如读取的DataNode节点挂掉了），则客户端会再次去寻找存有该块信息副本的DataNode节点，并从其上读取出块数据。</li>
-</ol>
-<p><strong>如下图所示：</strong></p>
-<p><img src="E:\blog\source\images/HDFS读写流程/HDFS读流程（已经读取完毕）.png" alt=""></p>
-<blockquote>
-<p>然而上述的流程有些地方不够完善。客户端是怎么去读取块的数据的？读过程对于客户端而言是否是透明的？依据距离去寻找最优的DataNode节点，这个距离是如何计算的？</p>
-</blockquote>
-<p><strong>详细的读流程图如下所示：</strong></p>
-<p><img src="E:\blog\source\images/HDFS读写流程/HDFS读流程（详细）.png" alt=""></p>
-<h5 id="客户端如何读取DataNode上所存的块数据？"><a href="#客户端如何读取DataNode上所存的块数据？" class="headerlink" title="客户端如何读取DataNode上所存的块数据？"></a>客户端如何读取DataNode上所存的块数据？</h5><p>步骤一：客户端通过FileSyste对象的open()方法去打开希望读取的文件；</p>
-<p>步骤二：此时，DistributedFileSystem会通过RPC去调用NameNode，然后NameNode会返回存有该文件所有block的所有的DataNode信息 （对于每一个块，NameNode会返回存有该块副本的DataNode信息，并按照距离对DataNode进行排序）；</p>
-<p>步骤三：然后，DistributedFileSystem类会返回一个FSDataInputStream对象给客户端去读取数据</p>
+<p>替换成：</p>
 <ul>
-<li>该FSDataInputStream类会封装DFSInputStream对象，该对象管理着datanode和namenode的I/O</li>
-</ul>
-<p>步骤四：客户端对这个数据流调用read()方法去读取块数据：</p>
-<ul>
-<li>DFSInputStream里存放着文件前几个块的副本的所有DataNode地址，于是会去连接距离最近的DataNode</li>
-</ul>
-<p>步骤五：Client通过对数据流反复调用read()方法，在DFSInputStream读取完第一个块的数据以后，会关闭与该DataNode的连接，转而去连接下一个距离最近且存着第二个块数据的DataNode节点，继续读取数据。<strong>整个过程对于Client而言是完全透明的，在客户端而言，它一直在读取一个连续的数据流</strong></p>
-<p>步骤六：Client在读取了文件前几个块的数据以后，根据需要，Client可能会询问NameNode节点检索下一批DataNode数据块的位置，然后继续通过DFSInputStream去读取数据。客户端一旦完成了数据读取，便会对FSDataInputStream调用close()方法。</p>
-<h5 id="读取流程的细节："><a href="#读取流程的细节：" class="headerlink" title="读取流程的细节："></a>读取流程的细节：</h5><blockquote>
-<p>在读取过程中，如果某一个DataNode发生故障，DFSInputStream会尝试连接另外一个最临近的DataNode，并记下该故障DataNode，保证后面不会再去该节点读取数据。DFSInputStream会通过<strong>校验和</strong>去检查读取的文件的正确性。</p>
-</blockquote>
-<blockquote>
-<p>这种读取流程，让NameNode的工作量大大减少，只需要响应客户端的块位置请求即可，无需响应数据请求，所以可以支持高扩展。</p>
-</blockquote>
-<blockquote>
-<p><strong>距离</strong>是按照带宽来进行计算的，一般来说可以依据场景，对带宽进行递减：<br>1.同一节点的不同进程<br>2.同一机架的不同节点<br>3.同一数据中心的不同机架上的节点<br>4.不同数据中心的节点</p>
-</blockquote>
-<h4 id="HDFS写流程"><a href="#HDFS写流程" class="headerlink" title="HDFS写流程"></a>HDFS写流程</h4><p><strong>HDFS写流程图</strong><br><img src="E:\blog\source\images/HDFS读写流程/HDFS写流程.png" alt=""><br>（图片来源-慕课网）</p>
-<ol>
-<li>首先，客户端会向NameNode请求写入文件</li>
-<li>NameNode通过查询自己维护的节点信息，向客户端返回还有空间可以存放数据的DataNode节点信息</li>
-<li>客户端将data文件进行分块，然后将块内容以及NameNode发送给客户端的信息一起发送给DataNode-1</li>
-<li>DataNode-1收到以后，会在管线中进行块数据的备份复制，使得达到块数据的最小复本数</li>
-<li>当DataNode-1-2-3都存储完数据块以后，将会反馈给NameNode存储完成数据块-1信息，NameNode更新一下元数据信息，接着NameNode再将该信息返回给客户端</li>
-<li>客户端再次开始存储数据块-2</li>
-</ol>
-<blockquote>
-<p>然而上述的流程还不够清晰，有很多细节值得去深入了解一下。比如：<br>客户端是如何将块文件写入到DataNode中的，是以块为单位直接传输吗？<br>DataNode如何实现将数据备份到其他DataNode节点上的呢？<br>如果在写入块数据的过程中，发生了错误，HDFS会怎么处理呢？</p>
-</blockquote>
-<p>来自《Hadoop权威指南》的HDFS写文件流程图：<br><img src="E:\blog\source\images/HDFS读写流程/HDFS写流程（详细）.png" alt=""></p>
-<h5 id="客户端如何将文件写入到DataNode？"><a href="#客户端如何将文件写入到DataNode？" class="headerlink" title="客户端如何将文件写入到DataNode？"></a>客户端如何将文件写入到DataNode？</h5><blockquote>
-<p><strong>create：</strong></p>
-</blockquote>
-<ul>
-<li>客户端通过DistributedFileSystem对象调用create()方法来创建一个新文件</li>
-<li>DistributedFileSystem的create()方法会返回一个FSDataOutputStream对象</li>
-<li>FSDataOutputStream封装了一个DFSOutputStream对象，在其构造函数中会使用RPC远程调用NameNode的create()方法来创建一个文件</li>
-<li>NameNode会先对文件创建操作进行检查（比如该客户端有没有权限创建文件，该文件名是否已经存在？），若检查没问题，NameNode则为创建新文件做一条记录，否则创建失败，并向客户端返回IOException异常</li>
-</ul>
-<blockquote>
-<p><strong>write packet 和 ack packet：</strong></p>
-</blockquote>
-<blockquote>
-<p>客户端写入数据块时，DFSOutputStream将其分成一个一个的包（packet），将packet放到pipeline（管线）里进行写入。写入时，会使用两个队列，一个是“数据队列”用于存放要写入packet；一个则是“确认队列“，用于接收DataNode发来的确认Ack。</p>
-</blockquote>
-<p>写入过程：（DataStreamer负责处理）</p>
-<ul>
-<li>一般会使用FSDataOutputStream的write方法</li>
-<li>FSDataOutputStream的write方法会调用DFSOutputStream的write方法，而DFSOutputStream继承自FSOutputSummer，所以实际上是调用FSOutputSummer的write方法</li>
-<li>首先将package 1写入DataNode 1然后由DataNode 1负责将package 1写入DataNode 2，同时客户端可以将pacage 2写入DataNode 1</li>
-<li>然后DataNode 2负责将package 1写入DataNode 3, 同时客户端可以讲package 3写入DataNode 1，DataNode 1将package 2写入DataNode 2</li>
-<li>就这样将一个个package排着队的传递下去，直到所有的数据全部写入并复制完毕</li>
-</ul>
-<p>确认过程：</p>
-<ul>
-<li>DataStreamer线程负责把准备好的数据packet，顺序写入到DataNode，未确认写入成功的packet则移动到ackQueue，等待确认。</li>
-<li>DataStreamer线程传输数据到DataNode时，要向namenode申请数据块，在NameNode分配了DataNode和block以后，createBlockOutputStream开始写入数据。</li>
-<li>只有对于一个数据包（packet）收到管道内的所有DataNode的ack之后，才能将该数据包从确认队列中删除。</li>
-</ul>
-<h6 id="当写入时有DataNode发生故障，导致数据无法正常写入，该怎么处理？？"><a href="#当写入时有DataNode发生故障，导致数据无法正常写入，该怎么处理？？" class="headerlink" title="当写入时有DataNode发生故障，导致数据无法正常写入，该怎么处理？？"></a>当写入时有DataNode发生故障，导致数据无法正常写入，该怎么处理？？</h6><blockquote>
-<p>DataStreamer会启动ResponseProcessor线程，它负责接收datanode的ack</p>
-<ul>
-<li>首先将管线关闭</li>
-<li>将确认队列的数据包添加回数据队列的前端</li>
-<li>将发生故障的DataNode从管线中移除</li>
-<li>在另一个正常的DataNode节点对当前的数据块做一个标记，并将标识发给NameNode，使损坏的DataNode恢复正常后能够删除已存储的部分数据块</li>
-<li>通过RPC调用DataNode的recoverBlock方法来恢复数据块</li>
-<li>以剩下的DataNode节点建立新的管线，继续写入数据（NameNode注意到块复本数量不足时，会重新添加一个DataNode进行副本数据保存） </li>
-</ul>
-</blockquote>
-<h5 id="HDFS如何选择副本的存储位置？"><a href="#HDFS如何选择副本的存储位置？" class="headerlink" title="HDFS如何选择副本的存储位置？"></a>HDFS如何选择副本的存储位置？</h5><blockquote>
-<p>副本存放位置的选定需要同时对可靠性、写入带宽和读取带宽同时均衡考量进行选取<br><strong>默认布局：</strong></p>
-<ul>
-<li>第一个副本一般放在客户端，如果客户端在数据中心之外，则会随机在数据中心选择一个节点</li>
-<li>第二个副本，选择和第一个在不同的机架的一个节点</li>
-<li>第三个副本则选择和第二个副本在一个机架上，但是是不同的节点</li>
-<li>后面的副本会随机选择，不过系统会尽量避免一个机架上会存放过多的副本</li>
-</ul>
-</blockquote>
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
-<li><p><a href="https://www.imooc.com/learn/928" target="_blank" rel="noopener">慕课网-Hadoop基础及演练 </a>:  <a href="https://www.imooc.com/learn/928" target="_blank" rel="noopener">https://www.imooc.com/learn/928</a></p>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(mat.length==<span class="number">0</span>||mat[<span class="number">0</span>].length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><a href="https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html" target="_blank" rel="noopener">HDFS-dfsclient写文件过程源码分析</a>:<a href="https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html" target="_blank" rel="noopener">https://www.cnblogs.com/ggjucheng/archive/2013/02/19/2917020.html</a></p>
-</li>
-<li><p>《Hadoop权威指南》</p>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x=mid/n; <span class="keyword">int</span> y=mid%n;</span><br><span class="line"><span class="keyword">if</span>(mat[x][y]&lt;=target)</span><br><span class="line">	l=mid;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>替换成：</p>
+<ul>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(mat[mid/n][mid%n]&lt;=target)</span><br><span class="line">    l=mid;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>虽然只是小小的优化，但是对于代码的简洁性和可读性有一定的提升</strong></p>
 
       
     </div>
@@ -583,7 +428,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://81.68.66.74/2019/08/25/Hadoop-HDFS读写原理/" title="HDFS读写原理" target="_blank" rel="external">http://81.68.66.74/2019/08/25/Hadoop-HDFS读写原理/</a>
+      <a href="http://81.68.66.74/2019/10/22/LeetCode-74-search-a-2d-matrix/" title="LeetCode 74. 搜索二维矩阵" target="_blank" rel="external">http://81.68.66.74/2019/10/22/LeetCode-74-search-a-2d-matrix/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -629,13 +474,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2019/08/29/浦发和美团面试总结/" title="(no title)"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2019/04/13/基本排序算法-Java/" title="基本排序算法（Java）"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/10/22/LeetCode-34-find-first-and-last-position-of-element-in-sorted-array/" title="LeetCode  34. 在排序数组中查找元素的第一个和最后一个位置"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
