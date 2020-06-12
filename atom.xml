@@ -27,10 +27,7 @@
     
       
       
-        &lt;blockquote&gt;
-&lt;p&gt;题目描述：编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：&lt;/p&gt;
-&lt;p&gt;每行中的整数从左到右按升序排列。&lt;br&gt;每行的第一个整数大于前一行的最后一个整数。&lt;br&gt;示例 1:&lt;/p&gt;
-&lt;p&gt;输入:&lt;br&gt;mat
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;blockquote&gt;&lt;p&gt;题目描述：编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：&lt;/p&gt;&lt;p&gt;每行中的整
       
     
     </summary>
@@ -54,10 +51,7 @@
     
       
       
-        &lt;blockquote&gt;
-&lt;p&gt;题目描述：给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。&lt;/p&gt;
-&lt;p&gt;你的算法时间复杂度必须是 O(log n) 级别。&lt;/p&gt;
-&lt;p&gt;如果数组中不存在目标值，返回 [-1, -
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;blockquote&gt;&lt;p&gt;题目描述：给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位
       
     
     </summary>
@@ -81,10 +75,7 @@
     
       
       
-        &lt;blockquote&gt;
-&lt;p&gt;95%的二分查找问题都可以通过两段性性质来解决&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;两段性性质指的是：能够将问题所给的区间通过判断分成两段，假设该判断函数为check，使得两段区域中一段满足check判断，另一段不满足。&lt;/s
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;blockquote&gt;&lt;p&gt;95%的二分查找问题都可以通过两段性性质来解决&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;&lt;strong&gt;两段性性质指的是：
       
     
     </summary>
@@ -108,11 +99,7 @@
     
       
       
-        &lt;blockquote&gt;
-&lt;p&gt;题目描述：给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。&lt;/p&gt;
-&lt;p&gt;你可以假设数组中无重复元素。&lt;/p&gt;
-&lt;p&gt;示例 1:&lt;/p&gt;
-&lt;p&gt;输入: [1,3,5,6], 5
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;blockquote&gt;&lt;p&gt;题目描述：给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插
       
     
     </summary>
@@ -136,12 +123,7 @@
     
       
       
-        &lt;blockquote&gt;
-&lt;p&gt;题目描述：实现 int sqrt(int x) 函数。&lt;/p&gt;
-&lt;p&gt;计算并返回 x 的平方根，其中 x 是非负整数。&lt;/p&gt;
-&lt;p&gt;由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。&lt;/p&gt;
-&lt;p&gt;示例 1:&lt;/p&gt;
-&lt;p&gt;输入: 4&lt;
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;blockquote&gt;&lt;p&gt;题目描述：实现 int sqrt(int x) 函数。&lt;/p&gt;&lt;p&gt;计算并返回 x 的平方根，其中 x 是非负整数。&lt;/
       
     
     </summary>
@@ -155,22 +137,23 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://81.68.66.74/2019/08/29/%E6%B5%A6%E5%8F%91%E5%92%8C%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
-    <id>http://81.68.66.74/2019/08/29/%E6%B5%A6%E5%8F%91%E5%92%8C%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</id>
-    <published>2019-08-29T15:18:31.714Z</published>
-    <updated>2019-08-30T06:53:32.677Z</updated>
+    <title>浦发和美团面试</title>
+    <link href="http://81.68.66.74/2019/08/30/%E6%B5%A6%E5%8F%91%E5%92%8C%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://81.68.66.74/2019/08/30/%E6%B5%A6%E5%8F%91%E5%92%8C%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</id>
+    <published>2019-08-30T00:00:00.000Z</published>
+    <updated>2020-06-12T09:30:50.347Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;今天的两场面试-浦发和美团&quot;&gt;&lt;a href=&quot;#今天的两场面试-浦发和美团&quot; class=&quot;headerlink&quot; title=&quot;今天的两场面试-浦发和美团&quot;&gt;&lt;/a&gt;今天的两场面试-浦发和美团&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;浦发：早上八点半  第一场
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;今天的两场面试-浦发和美团&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#今天的两场面试-浦发和美团&quot;&gt;&lt;
       
     
     </summary>
     
+    
+      <category term="面试" scheme="http://81.68.66.74/categories/%E9%9D%A2%E8%AF%95/"/>
     
     
   </entry>
@@ -186,8 +169,7 @@
     
       
       
-        &lt;h2 id=&quot;Hadoop-是什么&quot;&gt;&lt;a href=&quot;#Hadoop-是什么&quot; class=&quot;headerlink&quot; title=&quot;Hadoop 是什么&quot;&gt;&lt;/a&gt;Hadoop 是什么&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Hadoop 是一个开源的大数据框架同时也是一个分
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;h2 id=&quot;hadoop-是什么&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#hadoop-是什么&quot;&gt;&lt;/a&gt; Ha
       
     
     </summary>
@@ -211,8 +193,7 @@
     
       
       
-        &lt;h1 id=&quot;基本排序算法-Java&quot;&gt;&lt;a href=&quot;#基本排序算法-Java&quot; class=&quot;headerlink&quot; title=&quot;基本排序算法 (Java)&quot;&gt;&lt;/a&gt;基本排序算法 (Java)&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;经过几次笔试，发现自己的Java基础有些薄弱，基
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;基本排序算法-java&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#基本排序算法-java&quot;&gt;&lt;/a&gt; 
       
     
     </summary>
@@ -236,7 +217,7 @@
     
       
       
-        &lt;h2 id=&quot;阿里实习电话面试总结&quot;&gt;&lt;a href=&quot;#阿里实习电话面试总结&quot; class=&quot;headerlink&quot; title=&quot;阿里实习电话面试总结&quot;&gt;&lt;/a&gt;阿里实习电话面试总结&lt;/h2&gt;&lt;p&gt;这次面试主要问的是项目中Hadoop相关的知识，包括MR程序等等。后来还问了
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;h2 id=&quot;阿里实习电话面试总结&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#阿里实习电话面试总结&quot;&gt;&lt;/a&gt; 阿里
       
     
     </summary>
@@ -258,8 +239,7 @@
     
       
       
-        &lt;p&gt;&lt;img src=&quot;/images/Spark原理.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;&lt;img src=&quot;/images/Spark%E5%8E%9F%E7%90%86.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;&lt;!-- rebuild b
       
     
     </summary>
@@ -285,7 +265,7 @@
     
       
       
-        &lt;p&gt;今天做了一道《剑指offer》上的一道编程题“从尾到头打印链表”，具体要求如下：&lt;br&gt;&lt;strong&gt;输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。&lt;/strong&gt;&lt;br&gt;一开始我想的是通过两次遍历链表，第一次遍历得到链表元素的个数count。然后定义
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;今天做了一道《剑指offer》上的一道编程题“从尾到头打印链表”，具体要求如下：&lt;br&gt;&lt;strong&gt;输入一个链表，按链表值从尾到头的顺序返回
       
     
     </summary>
@@ -313,7 +293,7 @@
     
       
       
-        &lt;h2 id=&quot;Array-简介&quot;&gt;&lt;a href=&quot;#Array-简介&quot; class=&quot;headerlink&quot; title=&quot;Array 简介&quot;&gt;&lt;/a&gt;Array 简介&lt;/h2&gt;&lt;p&gt;java.util.Arrays 类能够方便地对数组进行操作，它所提供的所有方法都是静态的。
+        &lt;!-- build time:Fri Jun 12 2020 17:55:59 GMT+0800 (GMT+08:00) --&gt;&lt;h2 id=&quot;array-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#array-简介&quot;&gt;&lt;/a&gt; Array 
       
     
     </summary>
