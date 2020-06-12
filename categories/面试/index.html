@@ -56,27 +56,7 @@
       
       <div class="search" id="search-form-wrap">
 
-    <form class="search-form sidebar-form">
-        <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="搜索">
-            <span class="input-group-btn">
-                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
-            </span>
-        </div>
-    </form>
-    <div class="ins-search">
-  <div class="ins-search-mask"></div>
-  <div class="ins-search-container">
-    <div class="ins-input-wrapper">
-      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech="">
-      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-    </div>
-    <div class="ins-section-wrapper">
-      <div class="ins-section-container"></div>
-    </div>
-  </div>
-</div>
-
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://81.68.66.74"></form>
 
 </div>
       <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
@@ -218,15 +198,6 @@
     </div>
   </div>
 
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget-body tagcloud">
-      <a href="/tags/ArrayList/" style="font-size: 13px;">ArrayList</a> <a href="/tags/Arrays/" style="font-size: 13px;">Arrays</a> <a href="/tags/HDFS/" style="font-size: 13px;">HDFS</a> <a href="/tags/Java链表/" style="font-size: 13px;">Java链表</a> <a href="/tags/Spark原理/" style="font-size: 13px;">Spark原理</a> <a href="/tags/二分查找/" style="font-size: 14px;">二分查找</a> <a href="/tags/剑指offer/" style="font-size: 13px;">剑指offer</a> <a href="/tags/基本排序算法/" style="font-size: 13px;">基本排序算法</a> <a href="/tags/读书笔记/" style="font-size: 13px;">读书笔记</a>
-    </div>
-  </div>
 
     
       
@@ -409,24 +380,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
 <script src="/js/plugin.min.js"></script>
 <script src="/js/application.js"></script>
-
-    <script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
 
 
 
