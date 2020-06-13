@@ -86,20 +86,6 @@
   </url>
   
   <url>
-    <loc>http://81.68.66.74/repository/index.html</loc>
-    
-    <lastmod>2020-06-12T02:18:49.429Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://81.68.66.74/tags/index.html</loc>
-    
-    <lastmod>2020-06-12T02:18:49.429Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://81.68.66.74/categories/index.html</loc>
     
     <lastmod>2020-06-12T02:18:49.429Z</lastmod>
@@ -114,14 +100,28 @@
   </url>
   
   <url>
-    <loc>http://81.68.66.74/books/index.html</loc>
+    <loc>http://81.68.66.74/repository/index.html</loc>
+    
+    <lastmod>2020-06-12T02:18:49.429Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://81.68.66.74/tags/index.html</loc>
+    
+    <lastmod>2020-06-12T02:18:49.429Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://81.68.66.74//404.html</loc>
     
     <lastmod>2020-06-12T02:18:49.413Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://81.68.66.74//404.html</loc>
+    <loc>http://81.68.66.74/books/index.html</loc>
     
     <lastmod>2020-06-12T02:18:49.413Z</lastmod>
     
