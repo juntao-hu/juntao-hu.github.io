@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://81.68.66.74//404.html</loc>
+    
+    <lastmod>2020-06-13T09:58:51.298Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://81.68.66.74/2019/10/22/LeetCode-74-search-a-2d-matrix/</loc>
     
     <lastmod>2020-06-13T08:14:53.737Z</lastmod>
@@ -86,14 +93,7 @@
   </url>
   
   <url>
-    <loc>http://81.68.66.74/tags/index.html</loc>
-    
-    <lastmod>2020-06-12T02:18:49.429Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://81.68.66.74/repository/index.html</loc>
+    <loc>http://81.68.66.74/categories/index.html</loc>
     
     <lastmod>2020-06-12T02:18:49.429Z</lastmod>
     
@@ -107,7 +107,14 @@
   </url>
   
   <url>
-    <loc>http://81.68.66.74/categories/index.html</loc>
+    <loc>http://81.68.66.74/repository/index.html</loc>
+    
+    <lastmod>2020-06-12T02:18:49.429Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://81.68.66.74/tags/index.html</loc>
     
     <lastmod>2020-06-12T02:18:49.429Z</lastmod>
     
@@ -115,13 +122,6 @@
   
   <url>
     <loc>http://81.68.66.74/books/index.html</loc>
-    
-    <lastmod>2020-06-12T02:18:49.413Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://81.68.66.74//404.html</loc>
     
     <lastmod>2020-06-12T02:18:49.413Z</lastmod>
     
